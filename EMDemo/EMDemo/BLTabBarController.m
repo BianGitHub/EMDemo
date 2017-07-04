@@ -7,6 +7,10 @@
 //
 
 #import "BLTabBarController.h"
+#import "BLNavController.h"
+#import "BLConversationVC.h"
+#import "BLConfigVC.h"
+#import "BLAddressBookVC.h"
 
 @interface BLTabBarController ()
 
@@ -16,22 +20,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UIViewController *vc1 = [self controllerWith:@"BLConversationVC" title:@"聊天"];
+    UIViewController *vc2 = [self controllerWith:@"BLAddressBookVC" title:@"通讯录"];
+    UIViewController *vc3 = [self controllerWith:@"BLConfigVC" title:@"设置"];
+    self.viewControllers = @[vc1,vc2,vc3];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// 当控制器是sb创建的时候
+-(UIViewController *)controllerWithStoryboard:(NSString *)storyboardName title:(NSString*) title {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    // 初始化箭头所指向的控制器
+    //    UIViewController *vc = [sb instantiateInitialViewController];
+    
+    // 根据storyBoardID加载sb
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"businesses"];
+    
+    return [self controller:vc title:title];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UIViewController *)controllerWith:(NSString *)className title:(NSString *)title {
+    Class clz = NSClassFromString(className);
+    UIViewController *vc = [[clz alloc] init];
+    
+    return [self controller:vc title:title];
 }
-*/
+
+-(UIViewController *)controller:(UIViewController *)vc title:(NSString *)title {
+    
+//    vc.title = title;
+    BLNavController *nav = [[BLNavController alloc] initWithRootViewController:vc];
+    nav.tabBarItem.title = title;
+    
+    return nav;
+}
+
 
 @end

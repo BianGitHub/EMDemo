@@ -22,6 +22,10 @@
 		11A352531F0B8BF2006134A2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352521F0B8BF2006134A2 /* libiconv.tbd */; };
 		11A352551F0B8BFB006134A2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352541F0B8BFB006134A2 /* libresolv.tbd */; };
 		11A352571F0B8C01006134A2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352561F0B8C01006134A2 /* libxml2.tbd */; };
+		11A3525A1F0B92DB006134A2 /* BLNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352591F0B92DB006134A2 /* BLNavController.m */; };
+		11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352681F0B950E006134A2 /* BLConversationVC.m */; };
+		11A3526C1F0B9520006134A2 /* BLAddressBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3526B1F0B9520006134A2 /* BLAddressBookVC.m */; };
+		11A3526F1F0B9530006134A2 /* BLConfigVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3526E1F0B9530006134A2 /* BLConfigVC.m */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -46,6 +50,14 @@
 		11A352521F0B8BF2006134A2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		11A352541F0B8BFB006134A2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		11A352561F0B8C01006134A2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		11A352581F0B92DB006134A2 /* BLNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNavController.h; sourceTree = "<group>"; };
+		11A352591F0B92DB006134A2 /* BLNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNavController.m; sourceTree = "<group>"; };
+		11A352671F0B950E006134A2 /* BLConversationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLConversationVC.h; sourceTree = "<group>"; };
+		11A352681F0B950E006134A2 /* BLConversationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLConversationVC.m; sourceTree = "<group>"; };
+		11A3526A1F0B9520006134A2 /* BLAddressBookVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAddressBookVC.h; sourceTree = "<group>"; };
+		11A3526B1F0B9520006134A2 /* BLAddressBookVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAddressBookVC.m; sourceTree = "<group>"; };
+		11A3526D1F0B9530006134A2 /* BLConfigVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLConfigVC.h; sourceTree = "<group>"; };
+		11A3526E1F0B9530006134A2 /* BLConfigVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLConfigVC.m; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,8 +147,112 @@
 			children = (
 				11A351411F0B6ED6006134A2 /* BLTabBarController.h */,
 				11A351421F0B6ED6006134A2 /* BLTabBarController.m */,
+				11A352581F0B92DB006134A2 /* BLNavController.h */,
+				11A352591F0B92DB006134A2 /* BLNavController.m */,
+				11A3525B1F0B94BA006134A2 /* 聊天 */,
+				11A3525F1F0B94BA006134A2 /* 设置 */,
+				11A352631F0B94BA006134A2 /* 通讯录 */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		11A3525B1F0B94BA006134A2 /* 聊天 */ = {
+			isa = PBXGroup;
+			children = (
+				11A3525C1F0B94BA006134A2 /* Controller */,
+				11A3525D1F0B94BA006134A2 /* Model */,
+				11A3525E1F0B94BA006134A2 /* View */,
+			);
+			path = "聊天";
+			sourceTree = "<group>";
+		};
+		11A3525C1F0B94BA006134A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11A352671F0B950E006134A2 /* BLConversationVC.h */,
+				11A352681F0B950E006134A2 /* BLConversationVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11A3525D1F0B94BA006134A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11A3525E1F0B94BA006134A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11A3525F1F0B94BA006134A2 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				11A352601F0B94BA006134A2 /* Controller */,
+				11A352611F0B94BA006134A2 /* Model */,
+				11A352621F0B94BA006134A2 /* View */,
+			);
+			path = "设置";
+			sourceTree = "<group>";
+		};
+		11A352601F0B94BA006134A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11A3526A1F0B9520006134A2 /* BLAddressBookVC.h */,
+				11A3526B1F0B9520006134A2 /* BLAddressBookVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11A352611F0B94BA006134A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11A352621F0B94BA006134A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11A352631F0B94BA006134A2 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				11A352641F0B94BA006134A2 /* Controller */,
+				11A352651F0B94BA006134A2 /* Model */,
+				11A352661F0B94BA006134A2 /* View */,
+			);
+			path = "通讯录";
+			sourceTree = "<group>";
+		};
+		11A352641F0B94BA006134A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11A3526D1F0B9530006134A2 /* BLConfigVC.h */,
+				11A3526E1F0B9530006134A2 /* BLConfigVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11A352651F0B94BA006134A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11A352661F0B94BA006134A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8E6B0FBDDE89BB2C4190E624 /* Pods */ = {
@@ -288,9 +404,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */,
+				11A3525A1F0B92DB006134A2 /* BLNavController.m in Sources */,
+				11A3526C1F0B9520006134A2 /* BLAddressBookVC.m in Sources */,
 				11A351431F0B6ED6006134A2 /* BLTabBarController.m in Sources */,
+				11A3526F1F0B9530006134A2 /* BLConfigVC.m in Sources */,
 				11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */,
 				11A351241F0B67B1006134A2 /* main.m in Sources */,
+				11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

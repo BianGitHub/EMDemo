@@ -8,6 +8,7 @@
 
 #import "BLLoginController.h"
 #import <EaseMob.h>
+#import "BLTabBarController.h"
 
 @interface BLLoginController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -34,6 +35,12 @@
             NSLog(@"登录失败 - %@", error);
         } else {
             NSLog(@"登录成功 - %@", loginInfo);
+            
+            // 跳转主界面
+                
+                BLTabBarController *tabbarVC = [[BLTabBarController alloc] init];
+                self.view.window.rootViewController = tabbarVC;
+
         }
     } onQueue:nil];
 }

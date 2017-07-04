@@ -1,0 +1,8 @@
+ platform :ios, '9.0'
+
+target 'EMDemo' do
+
+pod 'EaseMobSDKFull', :git => 'https://github.com/easemob/sdk-ios-cocoapods-integration.git'
+
+
+end

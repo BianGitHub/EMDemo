@@ -14,6 +14,15 @@
 		11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3513C1F0B6BFD006134A2 /* BLLoginController.m */; };
 		11A3513F1F0B6C12006134A2 /* BLLoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A3513E1F0B6C12006134A2 /* BLLoginController.storyboard */; };
 		11A351431F0B6ED6006134A2 /* BLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351421F0B6ED6006134A2 /* BLTabBarController.m */; };
+		11A352491F0B8BA8006134A2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352481F0B8BA8006134A2 /* MobileCoreServices.framework */; };
+		11A3524B1F0B8BAF006134A2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A3524A1F0B8BAF006134A2 /* CFNetwork.framework */; };
+		11A3524D1F0B8BD2006134A2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A3524C1F0B8BD2006134A2 /* libsqlite3.tbd */; };
+		11A3524F1F0B8BD9006134A2 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A3524E1F0B8BD9006134A2 /* libstdc++.6.0.9.tbd */; };
+		11A352511F0B8BE3006134A2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352501F0B8BE3006134A2 /* libz.tbd */; };
+		11A352531F0B8BF2006134A2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352521F0B8BF2006134A2 /* libiconv.tbd */; };
+		11A352551F0B8BFB006134A2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352541F0B8BFB006134A2 /* libresolv.tbd */; };
+		11A352571F0B8C01006134A2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352561F0B8C01006134A2 /* libxml2.tbd */; };
+		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +38,17 @@
 		11A3513E1F0B6C12006134A2 /* BLLoginController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BLLoginController.storyboard; sourceTree = "<group>"; };
 		11A351411F0B6ED6006134A2 /* BLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTabBarController.h; sourceTree = "<group>"; };
 		11A351421F0B6ED6006134A2 /* BLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTabBarController.m; sourceTree = "<group>"; };
+		11A352481F0B8BA8006134A2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		11A3524A1F0B8BAF006134A2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		11A3524C1F0B8BD2006134A2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		11A3524E1F0B8BD9006134A2 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		11A352501F0B8BE3006134A2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		11A352521F0B8BF2006134A2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		11A352541F0B8BFB006134A2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		11A352561F0B8C01006134A2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
+		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +56,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A352571F0B8C01006134A2 /* libxml2.tbd in Frameworks */,
+				11A352551F0B8BFB006134A2 /* libresolv.tbd in Frameworks */,
+				11A352531F0B8BF2006134A2 /* libiconv.tbd in Frameworks */,
+				11A352511F0B8BE3006134A2 /* libz.tbd in Frameworks */,
+				11A3524F1F0B8BD9006134A2 /* libstdc++.6.0.9.tbd in Frameworks */,
+				11A3524D1F0B8BD2006134A2 /* libsqlite3.tbd in Frameworks */,
+				11A3524B1F0B8BAF006134A2 /* CFNetwork.framework in Frameworks */,
+				11A352491F0B8BA8006134A2 /* MobileCoreServices.framework in Frameworks */,
+				95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +76,8 @@
 			children = (
 				11A351211F0B67B1006134A2 /* EMDemo */,
 				11A351201F0B67B1006134A2 /* Products */,
+				8E6B0FBDDE89BB2C4190E624 /* Pods */,
+				AF04051B8D282687BAC8820E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +139,31 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		8E6B0FBDDE89BB2C4190E624 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */,
+				3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF04051B8D282687BAC8820E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11A352561F0B8C01006134A2 /* libxml2.tbd */,
+				11A352541F0B8BFB006134A2 /* libresolv.tbd */,
+				11A352521F0B8BF2006134A2 /* libiconv.tbd */,
+				11A352501F0B8BE3006134A2 /* libz.tbd */,
+				11A3524E1F0B8BD9006134A2 /* libstdc++.6.0.9.tbd */,
+				11A3524C1F0B8BD2006134A2 /* libsqlite3.tbd */,
+				11A3524A1F0B8BAF006134A2 /* CFNetwork.framework */,
+				11A352481F0B8BA8006134A2 /* MobileCoreServices.framework */,
+				D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11A351361F0B67B1006134A2 /* Build configuration list for PBXNativeTarget "EMDemo" */;
 			buildPhases = (
+				DF5E8D8033ADE786D99ACEAA /* [CP] Check Pods Manifest.lock */,
 				11A3511B1F0B67B1006134A2 /* Sources */,
 				11A3511C1F0B67B1006134A2 /* Frameworks */,
 				11A3511D1F0B67B1006134A2 /* Resources */,
+				E1111D2401BE83788F7C2AFA /* [CP] Embed Pods Frameworks */,
+				C57D1AB9C51748633E2FFA20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,6 +233,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C57D1AB9C51748633E2FFA20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF5E8D8033ADE786D99ACEAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E1111D2401BE83788F7C2AFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11A3511B1F0B67B1006134A2 /* Sources */ = {
@@ -295,6 +402,7 @@
 		};
 		11A351371F0B67B1006134A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5S24Y9KL4M;
@@ -307,6 +415,7 @@
 		};
 		11A351381F0B67B1006134A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5S24Y9KL4M;
@@ -336,6 +445,7 @@
 				11A351381F0B67B1006134A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

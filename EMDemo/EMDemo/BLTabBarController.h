@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BLTabBarController.h
 //  EMDemo
 //
 //  Created by 边雷 on 2017/7/4.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BLTabBarController : UITabBarController
 
 @end
-

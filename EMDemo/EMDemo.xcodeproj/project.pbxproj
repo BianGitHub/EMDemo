@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		11A351241F0B67B1006134A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351231F0B67B1006134A2 /* main.m */; };
 		11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351261F0B67B1006134A2 /* AppDelegate.m */; };
-		11A3512A1F0B67B1006134A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351291F0B67B1006134A2 /* ViewController.m */; };
-		11A3512D1F0B67B1006134A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A3512B1F0B67B1006134A2 /* Main.storyboard */; };
 		11A3512F1F0B67B1006134A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A3512E1F0B67B1006134A2 /* Assets.xcassets */; };
 		11A351321F0B67B1006134A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A351301F0B67B1006134A2 /* LaunchScreen.storyboard */; };
+		11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3513C1F0B6BFD006134A2 /* BLLoginController.m */; };
+		11A3513F1F0B6C12006134A2 /* BLLoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A3513E1F0B6C12006134A2 /* BLLoginController.storyboard */; };
+		11A351431F0B6ED6006134A2 /* BLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351421F0B6ED6006134A2 /* BLTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +21,14 @@
 		11A351231F0B67B1006134A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		11A351251F0B67B1006134A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11A351261F0B67B1006134A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		11A351281F0B67B1006134A2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		11A351291F0B67B1006134A2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		11A3512C1F0B67B1006134A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11A3512E1F0B67B1006134A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11A351311F0B67B1006134A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11A351331F0B67B1006134A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A3513B1F0B6BFD006134A2 /* BLLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLoginController.h; sourceTree = "<group>"; };
+		11A3513C1F0B6BFD006134A2 /* BLLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLLoginController.m; sourceTree = "<group>"; };
+		11A3513E1F0B6C12006134A2 /* BLLoginController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BLLoginController.storyboard; sourceTree = "<group>"; };
+		11A351411F0B6ED6006134A2 /* BLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTabBarController.h; sourceTree = "<group>"; };
+		11A351421F0B6ED6006134A2 /* BLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +61,9 @@
 		11A351211F0B67B1006134A2 /* EMDemo */ = {
 			isa = PBXGroup;
 			children = (
+				11A351401F0B6E89006134A2 /* Main */,
+				11A3513A1F0B6BA6006134A2 /* Login */,
 				11A351391F0B67C6006134A2 /* AppDelegate */,
-				11A351281F0B67B1006134A2 /* ViewController.h */,
-				11A351291F0B67B1006134A2 /* ViewController.m */,
-				11A3512B1F0B67B1006134A2 /* Main.storyboard */,
 				11A351221F0B67B1006134A2 /* Supporting Files */,
 			);
 			path = EMDemo;
@@ -85,6 +87,25 @@
 				11A351261F0B67B1006134A2 /* AppDelegate.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		11A3513A1F0B6BA6006134A2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				11A3513B1F0B6BFD006134A2 /* BLLoginController.h */,
+				11A3513C1F0B6BFD006134A2 /* BLLoginController.m */,
+				11A3513E1F0B6C12006134A2 /* BLLoginController.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		11A351401F0B6E89006134A2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				11A351411F0B6ED6006134A2 /* BLTabBarController.h */,
+				11A351421F0B6ED6006134A2 /* BLTabBarController.m */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A351321F0B67B1006134A2 /* LaunchScreen.storyboard in Resources */,
+				11A3513F1F0B6C12006134A2 /* BLLoginController.storyboard in Resources */,
 				11A3512F1F0B67B1006134A2 /* Assets.xcassets in Resources */,
-				11A3512D1F0B67B1006134A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +180,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11A3512A1F0B67B1006134A2 /* ViewController.m in Sources */,
 				11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */,
+				11A351431F0B6ED6006134A2 /* BLTabBarController.m in Sources */,
+				11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */,
 				11A351241F0B67B1006134A2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,14 +190,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		11A3512B1F0B67B1006134A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				11A3512C1F0B67B1006134A2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		11A351301F0B67B1006134A2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

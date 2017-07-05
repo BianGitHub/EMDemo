@@ -52,7 +52,14 @@
 [[EaseMob sharedInstance] registerSDKWithAppKey:@"1189170704178205#emdemo" apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger:@(NO)}];
  
  
+ 
+ ------------------实现的功能---------------------
+ ( 所有功能实现详见demo及环信IM官方文档 http://docs.easemob.com/start/300iosclientintegration/30iossdkbasic)
  1.注册 和 登录 使用的是block异步方法
+ 
+ 2.自动登录
+ 
+ 3.监听网络状态并自动重连
  
      
      

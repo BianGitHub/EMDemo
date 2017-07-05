@@ -47,9 +47,11 @@
                 NSLog(@"登录成功 - %@", loginInfo);
                 
                 // 跳转主界面
-                BLTabBarController *tabbarVC = [[BLTabBarController alloc] init];
-                self.view.window.rootViewController = tabbarVC;
-                [self.view.window makeKeyAndVisible];
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    BLTabBarController *tabbarVC = [[BLTabBarController alloc] init];
+                    self.view.window.rootViewController = tabbarVC;
+                    [self.view.window makeKeyAndVisible];
+                }];
                 
             }
         } onQueue:nil];

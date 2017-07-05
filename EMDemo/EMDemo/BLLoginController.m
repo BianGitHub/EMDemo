@@ -23,28 +23,40 @@
     
     
 }
+
+#pragma mark - 登录
 - (IBAction)LoginClick:(UIButton *)sender {
     
     if (self.username.text.length == 0 || self.password.text.length == 0) {
         NSLog(@"请输入正确的用户名或密码");
         return;
     }
-    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:self.username.text password:self.password.text completion:^(NSDictionary *loginInfo, EMError *error) {
-        
-        if (error) {
-            NSLog(@"登录失败 - %@", error);
-        } else {
-            NSLog(@"登录成功 - %@", loginInfo);
+    
+    BOOL isAutoLogin = [[EaseMob sharedInstance].chatManager isAutoLoginEnabled];
+    if (!isAutoLogin) {
+
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:self.username.text password:self.password.text completion:^(NSDictionary *loginInfo, EMError *error) {
             
-            // 跳转主界面
+            if (error) {
+                NSLog(@"登录失败 - %@", error);
+            } else {
                 
+                // 设置自动登录
+                [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                
+                NSLog(@"登录成功 - %@", loginInfo);
+                
+                // 跳转主界面
                 BLTabBarController *tabbarVC = [[BLTabBarController alloc] init];
                 self.view.window.rootViewController = tabbarVC;
-
-        }
-    } onQueue:nil];
+                [self.view.window makeKeyAndVisible];
+                
+            }
+        } onQueue:nil];
+    }
 }
 
+#pragma mark - 注册
 - (IBAction)registerClick:(UIButton *)sender {
     
     if (self.username.text.length == 0 || self.password.text.length == 0) {

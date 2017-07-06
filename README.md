@@ -21,9 +21,8 @@
 
  6.     修改AppDelegate  ( 按照官方文档修改 )
  
-     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //registerSDKWithAppKey: 注册的AppKey，详细见下面注释。
-    //apnsCertName: 推送证书名（不需要加后缀），详细见下面注释。
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     [[EaseMob sharedInstance] registerSDKWithAppKey:@"1189170704178205#emdemo" apnsCertName:nil];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     return YES;
@@ -43,23 +42,25 @@
 }
 
 
+
  
- 
- 实现基础功能( 详见官方文档 )
- 
- 因SDK中打印了很多SDK里面打印的日志, 所以在AppDelegate的didFinishLaunchingWithOptions中 换用另一个方法, 就可以屏蔽其中的打印日志
- 
-[[EaseMob sharedInstance] registerSDKWithAppKey:@"1189170704178205#emdemo" apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger:@(NO)}];
+
  
  
  
- ------------------实现的功能---------------------
+ ------------------实现的功能------------------------
  ( 所有功能实现详见demo及环信IM官方文档 http://docs.easemob.com/start/300iosclientintegration/30iossdkbasic)
- 1.注册 和 登录 使用的是block异步方法
  
- 2.自动登录
+  0.因SDK中打印了很多SDK里面打印的日志, 所以在AppDelegate的didFinishLaunchingWithOptions中 换用另一个方法, 就可以屏蔽其中的打印日志
  
- 3.监听网络状态并自动重连
+   [[EaseMob sharedInstance] registerSDKWithAppKey:@"1189170704178205#emdemo" apnsCertName:nil  otherConfig:@{kSDKConfigEnableConsoleLogger:@(NO)}];
+
+
+  1.注册 和 登录 使用的是block异步方法
+ 
+  2.自动登录
+ 
+  3.监听网络状态并自动重连
  
      
      

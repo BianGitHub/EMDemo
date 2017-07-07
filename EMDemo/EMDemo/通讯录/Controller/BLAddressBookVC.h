@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLAddressBookVC : UIViewController
+@interface BLAddressBookVC : UITableViewController
 
 @end

@@ -8,18 +8,22 @@
 
 #import "BLConversationVC.h"
 #import <EaseMob.h>
+#import "BLSharedEM.h"
 
 @interface BLConversationVC ()<EMChatManagerDelegate>
 
 @end
 
-@implementation BLConversationVC
+@implementation BLConversationVC {
+    
+    NSMutableDictionary *_dict;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"聊天";
-    
+    _dict = [NSMutableDictionary dictionaryWithCapacity:0];
     // 设置代理
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
 
@@ -56,6 +60,21 @@
 - (void)didAutoReconnectFinishedWithError:(NSError *)error {
     NSLog(@"自动重连操作完成后的回调 - %@", error);
     self.navigationItem.title = @"聊天";
+}
+
+
+/*!
+ @brief 接收到好友请求时的通知
+ @param username 发起好友请求的用户username
+ @param message  收到好友请求时的say hello消息
+ */
+- (void)didReceiveBuddyRequest:(NSString *)username message:(NSString *)message {
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:username forKey:@"username"];
+    [dict setValue:message forKey:@"message"];
+    [[BLSharedEM sharedInstance].friendCount addObject:dict];
+
 }
 
 @end

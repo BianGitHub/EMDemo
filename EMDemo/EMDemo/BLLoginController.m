@@ -26,6 +26,10 @@
 
 #pragma mark - 登录
 - (IBAction)LoginClick:(UIButton *)sender {
+    // 登录成功后，自动去取好友列表
+    // SDK获取结束后，会回调
+    // - (void)didFetchedBuddyList:(NSArray *)buddyList error:(EMError *)error方法。
+    [[EaseMob sharedInstance].chatManager setIsAutoFetchBuddyList:YES];
     
     if (self.username.text.length == 0 || self.password.text.length == 0) {
         NSLog(@"请输入正确的用户名或密码");

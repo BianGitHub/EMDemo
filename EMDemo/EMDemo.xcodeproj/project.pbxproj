@@ -24,8 +24,11 @@
 		11A352571F0B8C01006134A2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A352561F0B8C01006134A2 /* libxml2.tbd */; };
 		11A3525A1F0B92DB006134A2 /* BLNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352591F0B92DB006134A2 /* BLNavController.m */; };
 		11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352681F0B950E006134A2 /* BLConversationVC.m */; };
-		11A3526C1F0B9520006134A2 /* BLAddressBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3526B1F0B9520006134A2 /* BLAddressBookVC.m */; };
-		11A3526F1F0B9530006134A2 /* BLConfigVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3526E1F0B9530006134A2 /* BLConfigVC.m */; };
+		11A3527C1F0DDFEA006134A2 /* BLConfigVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352731F0DDFEA006134A2 /* BLConfigVC.m */; };
+		11A3527D1F0DDFEA006134A2 /* BLAddressBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352791F0DDFEA006134A2 /* BLAddressBookVC.m */; };
+		11A352801F0DE432006134A2 /* BLAddFriendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3527F1F0DE432006134A2 /* BLAddFriendController.m */; };
+		11A352841F0F6A65006134A2 /* BLSharedEM.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352831F0F6A64006134A2 /* BLSharedEM.m */; };
+		11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352861F0F7A74006134A2 /* BLFriendRequestController.m */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -54,10 +57,16 @@
 		11A352591F0B92DB006134A2 /* BLNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNavController.m; sourceTree = "<group>"; };
 		11A352671F0B950E006134A2 /* BLConversationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLConversationVC.h; sourceTree = "<group>"; };
 		11A352681F0B950E006134A2 /* BLConversationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLConversationVC.m; sourceTree = "<group>"; };
-		11A3526A1F0B9520006134A2 /* BLAddressBookVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAddressBookVC.h; sourceTree = "<group>"; };
-		11A3526B1F0B9520006134A2 /* BLAddressBookVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAddressBookVC.m; sourceTree = "<group>"; };
-		11A3526D1F0B9530006134A2 /* BLConfigVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLConfigVC.h; sourceTree = "<group>"; };
-		11A3526E1F0B9530006134A2 /* BLConfigVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLConfigVC.m; sourceTree = "<group>"; };
+		11A352721F0DDFEA006134A2 /* BLConfigVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLConfigVC.h; sourceTree = "<group>"; };
+		11A352731F0DDFEA006134A2 /* BLConfigVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLConfigVC.m; sourceTree = "<group>"; };
+		11A352781F0DDFEA006134A2 /* BLAddressBookVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAddressBookVC.h; sourceTree = "<group>"; };
+		11A352791F0DDFEA006134A2 /* BLAddressBookVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAddressBookVC.m; sourceTree = "<group>"; };
+		11A3527E1F0DE432006134A2 /* BLAddFriendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAddFriendController.h; sourceTree = "<group>"; };
+		11A3527F1F0DE432006134A2 /* BLAddFriendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAddFriendController.m; sourceTree = "<group>"; };
+		11A352821F0F6A64006134A2 /* BLSharedEM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSharedEM.h; sourceTree = "<group>"; };
+		11A352831F0F6A64006134A2 /* BLSharedEM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSharedEM.m; sourceTree = "<group>"; };
+		11A352851F0F7A74006134A2 /* BLFriendRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFriendRequestController.h; sourceTree = "<group>"; };
+		11A352861F0F7A74006134A2 /* BLFriendRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFriendRequestController.m; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +113,7 @@
 		11A351211F0B67B1006134A2 /* EMDemo */ = {
 			isa = PBXGroup;
 			children = (
+				11A352811F0F6A12006134A2 /* lib */,
 				11A351401F0B6E89006134A2 /* Main */,
 				11A3513A1F0B6BA6006134A2 /* Login */,
 				11A351391F0B67C6006134A2 /* AppDelegate */,
@@ -150,8 +160,8 @@
 				11A352581F0B92DB006134A2 /* BLNavController.h */,
 				11A352591F0B92DB006134A2 /* BLNavController.m */,
 				11A3525B1F0B94BA006134A2 /* 聊天 */,
-				11A3525F1F0B94BA006134A2 /* 设置 */,
-				11A352631F0B94BA006134A2 /* 通讯录 */,
+				11A352761F0DDFEA006134A2 /* 通讯录 */,
+				11A352701F0DDFEA006134A2 /* 设置 */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -189,70 +199,83 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		11A3525F1F0B94BA006134A2 /* 设置 */ = {
+		11A352701F0DDFEA006134A2 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
-				11A352601F0B94BA006134A2 /* Controller */,
-				11A352611F0B94BA006134A2 /* Model */,
-				11A352621F0B94BA006134A2 /* View */,
+				11A352711F0DDFEA006134A2 /* Controller */,
+				11A352741F0DDFEA006134A2 /* Model */,
+				11A352751F0DDFEA006134A2 /* View */,
 			);
 			path = "设置";
 			sourceTree = "<group>";
 		};
-		11A352601F0B94BA006134A2 /* Controller */ = {
+		11A352711F0DDFEA006134A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				11A3526A1F0B9520006134A2 /* BLAddressBookVC.h */,
-				11A3526B1F0B9520006134A2 /* BLAddressBookVC.m */,
+				11A352721F0DDFEA006134A2 /* BLConfigVC.h */,
+				11A352731F0DDFEA006134A2 /* BLConfigVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		11A352611F0B94BA006134A2 /* Model */ = {
+		11A352741F0DDFEA006134A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		11A352621F0B94BA006134A2 /* View */ = {
+		11A352751F0DDFEA006134A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		11A352631F0B94BA006134A2 /* 通讯录 */ = {
+		11A352761F0DDFEA006134A2 /* 通讯录 */ = {
 			isa = PBXGroup;
 			children = (
-				11A352641F0B94BA006134A2 /* Controller */,
-				11A352651F0B94BA006134A2 /* Model */,
-				11A352661F0B94BA006134A2 /* View */,
+				11A352771F0DDFEA006134A2 /* Controller */,
+				11A3527A1F0DDFEA006134A2 /* Model */,
+				11A3527B1F0DDFEA006134A2 /* View */,
 			);
 			path = "通讯录";
 			sourceTree = "<group>";
 		};
-		11A352641F0B94BA006134A2 /* Controller */ = {
+		11A352771F0DDFEA006134A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				11A3526D1F0B9530006134A2 /* BLConfigVC.h */,
-				11A3526E1F0B9530006134A2 /* BLConfigVC.m */,
+				11A352781F0DDFEA006134A2 /* BLAddressBookVC.h */,
+				11A352791F0DDFEA006134A2 /* BLAddressBookVC.m */,
+				11A352851F0F7A74006134A2 /* BLFriendRequestController.h */,
+				11A352861F0F7A74006134A2 /* BLFriendRequestController.m */,
+				11A3527E1F0DE432006134A2 /* BLAddFriendController.h */,
+				11A3527F1F0DE432006134A2 /* BLAddFriendController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		11A352651F0B94BA006134A2 /* Model */ = {
+		11A3527A1F0DDFEA006134A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		11A352661F0B94BA006134A2 /* View */ = {
+		11A3527B1F0DDFEA006134A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		11A352811F0F6A12006134A2 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				11A352821F0F6A64006134A2 /* BLSharedEM.h */,
+				11A352831F0F6A64006134A2 /* BLSharedEM.m */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 		8E6B0FBDDE89BB2C4190E624 /* Pods */ = {
@@ -404,12 +427,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */,
+				11A3527C1F0DDFEA006134A2 /* BLConfigVC.m in Sources */,
 				11A3525A1F0B92DB006134A2 /* BLNavController.m in Sources */,
-				11A3526C1F0B9520006134A2 /* BLAddressBookVC.m in Sources */,
 				11A351431F0B6ED6006134A2 /* BLTabBarController.m in Sources */,
-				11A3526F1F0B9530006134A2 /* BLConfigVC.m in Sources */,
+				11A3527D1F0DDFEA006134A2 /* BLAddressBookVC.m in Sources */,
 				11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */,
+				11A352841F0F6A65006134A2 /* BLSharedEM.m in Sources */,
+				11A352801F0DE432006134A2 /* BLAddFriendController.m in Sources */,
 				11A351241F0B67B1006134A2 /* main.m in Sources */,
+				11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */,
 				11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

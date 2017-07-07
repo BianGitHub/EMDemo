@@ -1,23 +1,25 @@
 //
-//  BLAddressBookVC.m
+//  BLConfigVC.m
 //  EMDemo
 //
 //  Created by 边雷 on 2017/7/4.
 //  Copyright © 2017年 Mac-b. All rights reserved.
 //
 
-#import "BLAddressBookVC.h"
+#import "BLConfigVC.h"
 
-@interface BLAddressBookVC ()
+@interface BLConfigVC ()
 
 @end
 
-@implementation BLAddressBookVC
+@implementation BLConfigVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
     self.navigationItem.title = @"设置";
 }
+
 
 @end

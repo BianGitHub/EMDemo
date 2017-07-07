@@ -30,7 +30,8 @@
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     // 设置导航条barbuttonItem颜色
-//    self.navigationBar.tintColor = [UIColor redColor];
+    self.navigationBar.tintColor = [UIColor whiteColor];
+
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

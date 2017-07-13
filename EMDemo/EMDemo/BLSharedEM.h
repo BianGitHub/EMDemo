@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Mac-b. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface BLSharedEM : NSObject
 
@@ -14,4 +14,6 @@
 @property (nonatomic ,strong) NSMutableArray *friendCount;
 
 + (instancetype)sharedInstance;
+
+- (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc;
 @end

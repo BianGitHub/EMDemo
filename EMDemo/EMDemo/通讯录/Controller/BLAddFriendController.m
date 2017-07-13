@@ -8,6 +8,7 @@
 
 #import "BLAddFriendController.h"
 #import <EaseMob.h>
+#import "BLSharedEM.h"
 
 @interface BLAddFriendController ()
 @property (nonatomic, strong) UITextField *textField;
@@ -45,11 +46,13 @@
     if (isSuccess && !error) {
         NSLog(@"添加成功");
         
-        [self alertViewShow:@"添加成功"];
+//        [self alertViewShow:@"添加成功"];
+        [[BLSharedEM sharedInstance] alertViewShow:@"添加成功" controller:self];
     }else {
         NSLog(@"添加失败 - %@", error);
         
-        [self alertViewShow:@"添加失败"];
+//        [self alertViewShow:@"添加失败"];
+        [[BLSharedEM sharedInstance] alertViewShow:@"添加失败" controller:self];
     }
 }
 
@@ -57,10 +60,4 @@
     [self.textField endEditing:YES];
 }
 
-- (void)alertViewShow:(NSString *)str {
-    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [alertC addAction:alertAction];
-    [self presentViewController:alertC animated:YES completion:nil];
-}
 @end

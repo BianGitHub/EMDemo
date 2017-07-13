@@ -32,4 +32,11 @@ static BLSharedEM *sem = nil;
     return _friendCount;
 }
 
+- (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc{
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alertC addAction:alertAction];
+    [vc presentViewController:alertC animated:YES completion:nil];
+}
+
 @end

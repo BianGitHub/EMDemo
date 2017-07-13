@@ -70,6 +70,7 @@
         
         id vc = self.viewControllers[1];
         [vc popToRootViewControllerAnimated:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadcontroller" object:nil];
     }
 }
 

@@ -26,6 +26,7 @@
     self.navigationItem.title = @"通讯录";
     self.frc = [BLFriendRequestController new];
     self.frc.delegate = self;
+    
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     _dict = [NSMutableDictionary dictionaryWithCapacity:0];
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -35,6 +36,14 @@
     self.navigationItem.rightBarButtonItem = rightBarButton;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"friendCell"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadController) name:@"reloadcontroller" object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadcontroller" object:nil];
 }
 
 - (void)leftAction {
@@ -98,5 +107,25 @@
     
     [self.tableView reloadData];
 }
+
+- (void)reloadController {
+    [self.tableView reloadData];
+}
+
+///*!
+// @brief 好友请求被接受时的回调
+// @param username 之前发出的好友请求被用户username接受了
+// */
+//- (void)didAcceptedByBuddy:(NSString *)username {
+//    NSLog(@"%@好友请求被接受", username);
+//}
+//
+///*!
+//  好友请求被拒绝时的回调
+//  username 之前发出的好友请求被用户username拒绝了
+// */
+//- (void)didRejectedByBuddy:(NSString *)username {
+//    NSLog(@"%@好友请求被拒绝", username);
+//}
 
 @end

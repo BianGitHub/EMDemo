@@ -12,8 +12,8 @@
 #import "BLSharedEM.h"
 #import "BLFriendRequestController.h"
 
-@interface BLAddressBookVC ()<EMChatManagerDelegate ,UITableViewDataSource, UITableViewDelegate>
-
+@interface BLAddressBookVC ()<EMChatManagerDelegate ,UITableViewDataSource, UITableViewDelegate, BLFriendRequestControllerDelegate>
+@property (nonatomic, strong)BLFriendRequestController *frc;
 @end
 
 @implementation BLAddressBookVC {
@@ -24,7 +24,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"通讯录";
-
+    self.frc = [BLFriendRequestController new];
+    self.frc.delegate = self;
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     _dict = [NSMutableDictionary dictionaryWithCapacity:0];
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -88,9 +89,14 @@
     if (indexPath.section == 0) {
         NSLog(@"点击了llllll");
         NSLog(@"%@", [BLSharedEM sharedInstance].friendCount);
-        BLFriendRequestController *frc = [BLFriendRequestController new];
-        [self.navigationController pushViewController:frc animated:YES];
+//        self.frc = [BLFriendRequestController new];
+        [self.navigationController pushViewController:self.frc animated:YES];
     }
+}
+
+- (void)didSelectAgreeAction {
+    
+    [self.tableView reloadData];
 }
 
 @end

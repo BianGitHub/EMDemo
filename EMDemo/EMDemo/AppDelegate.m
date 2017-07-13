@@ -65,5 +65,4 @@
     [[EaseMob sharedInstance] applicationWillTerminate:application];
 }
 
-
 @end

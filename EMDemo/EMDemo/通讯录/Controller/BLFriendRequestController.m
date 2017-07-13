@@ -66,19 +66,35 @@
     
     UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        // 同意添加好友申请
         EMError *error = nil;
         BOOL isSuccess = [[EaseMob sharedInstance].chatManager acceptBuddyRequest:[BLSharedEM sharedInstance].friendCount[indexPath.row][@"username"] error:&error];
         if (isSuccess && !error) {
+            // 清除本地添加好友的记录
+            [[BLSharedEM sharedInstance].friendCount removeObjectAtIndex:indexPath.row];
+            [self.navigationController popToRootViewControllerAnimated:YES];
             [[BLSharedEM sharedInstance] alertViewShow:@"添加成功" controller:self];
+            
+            // 从服务器获取好友
+            [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
+                if (!error) {
+                    [self.delegate didSelectAgreeAction];
+                }
+            } onQueue:nil];
         }
     }];
     
     UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
+        // 拒绝添加好友申请
         EMError *error = nil;
         BOOL isSuccess = [[EaseMob sharedInstance].chatManager rejectBuddyRequest:[BLSharedEM sharedInstance].friendCount[indexPath.row][@"username"]  reason:nil error:&error];
         if (isSuccess && !error) {
-            [[BLSharedEM sharedInstance] alertViewShow:@"拒绝成功" controller:self];
+            // 清除本地添加好友的记录
+            [[BLSharedEM sharedInstance].friendCount removeObjectAtIndex:indexPath.row];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+            [[BLSharedEM sharedInstance] alertViewShow:@"已拒绝" controller:self];
         }
     }];
     

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLFriendRequestController : UITableViewController
+@protocol BLFriendRequestControllerDelegate <NSObject>
 
+- (void)didSelectAgreeAction;
+
+@end
+
+@interface BLFriendRequestController : UITableViewController
+@property (nonatomic, weak) id<BLFriendRequestControllerDelegate> delegate;
 @end

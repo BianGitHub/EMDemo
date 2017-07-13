@@ -11,8 +11,9 @@
 #import "BLConversationVC.h"
 #import "BLConfigVC.h"
 #import "BLAddressBookVC.h"
+#import <EaseMob.h>
 
-@interface BLTabBarController ()
+@interface BLTabBarController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tabBarController.delegate = self;
     UIViewController *vc1 = [self controllerWith:@"BLConversationVC" title:@"聊天"];
     UIViewController *vc2 = [self controllerWith:@"BLAddressBookVC" title:@"通讯录"];
     UIViewController *vc3 = [self controllerWith:@"BLConfigVC" title:@"设置"];
@@ -53,6 +55,22 @@
     nav.tabBarItem.title = title;
     
     return nav;
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+    NSLog(@"%@", item.title);
+    if ([item.title isEqualToString:@"通讯录"]) {
+        // 重新获取好友
+        [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
+            if (!error) {
+                NSLog(@"获取成功 -- %@",buddyList);
+            }
+        } onQueue:nil];
+        
+        id vc = self.viewControllers[1];
+        [vc popToRootViewControllerAnimated:NO];
+    }
 }
 
 

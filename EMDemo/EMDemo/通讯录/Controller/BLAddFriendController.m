@@ -47,12 +47,12 @@
         NSLog(@"添加成功");
         
 //        [self alertViewShow:@"添加成功"];
-        [[BLSharedEM sharedInstance] alertViewShow:@"添加成功" controller:self];
+        [[BLSharedEM sharedInstance] alertViewShow:@"添加成功" controller:self handler:nil];
     }else {
         NSLog(@"添加失败 - %@", error);
         
 //        [self alertViewShow:@"添加失败"];
-        [[BLSharedEM sharedInstance] alertViewShow:@"添加失败" controller:self];
+        [[BLSharedEM sharedInstance] alertViewShow:@"添加失败" controller:self handler:nil];
     }
 }
 

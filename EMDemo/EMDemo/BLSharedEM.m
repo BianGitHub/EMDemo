@@ -32,10 +32,16 @@ static BLSharedEM *sem = nil;
     return _friendCount;
 }
 
-- (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc{
+- (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc handler:(void(^)())handler{
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [alertC addAction:alertAction];
+    if (handler == nil) {
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:handler];
+        [alertC addAction:alertAction];
+    } else {
+        
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:handler];
+        [alertC addAction:alertAction];
+    }
     [vc presentViewController:alertC animated:YES completion:nil];
 }
 

@@ -24,6 +24,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"通讯录";
+    
     self.frc = [BLFriendRequestController new];
     self.frc.delegate = self;
     
@@ -70,6 +71,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.section == 0) {
         cell.imageView.image = [UIImage imageNamed:@"newFriends"];
     
@@ -112,20 +114,30 @@
     [self.tableView reloadData];
 }
 
-///*!
-// @brief 好友请求被接受时的回调
-// @param username 之前发出的好友请求被用户username接受了
-// */
-//- (void)didAcceptedByBuddy:(NSString *)username {
-//    NSLog(@"%@好友请求被接受", username);
-//}
-//
-///*!
-//  好友请求被拒绝时的回调
-//  username 之前发出的好友请求被用户username拒绝了
-// */
-//- (void)didRejectedByBuddy:(NSString *)username {
-//    NSLog(@"%@好友请求被拒绝", username);
-//}
+#pragma mark - delegate按钮
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // 删除好友
+        EMBuddy *buddy = [[EaseMob sharedInstance].chatManager buddyList][indexPath.row];
+        EMError *error = nil;
+        BOOL isSuccess = [[EaseMob sharedInstance].chatManager removeBuddy:buddy.username removeFromRemote:YES error:&error];
+        if (isSuccess && !error) {
+            [[BLSharedEM sharedInstance] alertViewShow:@"删除成功" controller:self handler:^{
+                
+                [self.tableView reloadData];
+            }];
+        }
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        return NO;
+    }
+    return YES;
+}
 
 @end

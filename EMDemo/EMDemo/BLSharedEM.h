@@ -15,5 +15,5 @@
 
 + (instancetype)sharedInstance;
 
-- (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc;
+- (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc handler:(void(^)())handler;
 @end

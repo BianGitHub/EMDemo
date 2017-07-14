@@ -65,15 +65,16 @@
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@ 是否同意?", [BLSharedEM sharedInstance].friendCount[indexPath.row][@"message"]] preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
         // 同意添加好友申请
         EMError *error = nil;
         BOOL isSuccess = [[EaseMob sharedInstance].chatManager acceptBuddyRequest:[BLSharedEM sharedInstance].friendCount[indexPath.row][@"username"] error:&error];
         if (isSuccess && !error) {
             // 清除本地添加好友的记录
             [[BLSharedEM sharedInstance].friendCount removeObjectAtIndex:indexPath.row];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            [[BLSharedEM sharedInstance] alertViewShow:@"添加成功" controller:self handler:nil];
+            [[BLSharedEM sharedInstance] alertViewShow:@"添加成功" controller:self handler:^{
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self.tableView reloadData];
+            }];
             
             // 从服务器获取好友
             [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {

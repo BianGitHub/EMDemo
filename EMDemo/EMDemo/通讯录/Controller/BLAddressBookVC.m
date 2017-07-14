@@ -100,7 +100,8 @@
     if (indexPath.section == 0) {
         NSLog(@"点击了llllll");
         NSLog(@"%@", [BLSharedEM sharedInstance].friendCount);
-//        self.frc = [BLFriendRequestController new];
+
+        [self.frc.tableView reloadData];
         [self.navigationController pushViewController:self.frc animated:YES];
     }
 }

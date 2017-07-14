@@ -63,11 +63,12 @@
   3.监听网络状态并自动重连
  
   4.添加好友, 好友列表
-     buddyList需要自动登录后才有值, 是本笃数据库获取的
+     buddyList需要自动登录后才有值, 是本地数据库获取的好友列表数据
      需要从服务器获取好友列表
      [[EaseMob sharedInstance].chatManager setIsAutoFetchBuddyList:YES];
      
-    
+   
+  5.接收到好友的同意请求后, 刷新好友列表数据
      
           
           

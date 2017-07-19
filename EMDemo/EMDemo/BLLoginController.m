@@ -9,6 +9,7 @@
 #import "BLLoginController.h"
 #import <EaseMob.h>
 #import "BLTabBarController.h"
+#import "BLSharedEM.h"
 
 @interface BLLoginController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -43,6 +44,7 @@
             
             if (error) {
                 NSLog(@"登录失败 - %@", error);
+                [[BLSharedEM sharedInstance] alertViewShow:@"登录失败" controller:self handler:nil];
             } else {
                 
                 // 设置自动登录
@@ -73,10 +75,18 @@
        
         if (error) {
             NSLog(@"注册失败 - %@", error);
+            
+            [[BLSharedEM sharedInstance] alertViewShow:[NSString stringWithFormat:@"注册失败 %@", error] controller:self handler:nil];
         } else {
             NSLog(@"注册成功");
+            [[BLSharedEM sharedInstance] alertViewShow:@"注册成功" controller:self handler:nil];
         }
     } onQueue:nil];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.username endEditing:YES];
+    [self.password endEditing:YES];
 }
 
 @end

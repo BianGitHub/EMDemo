@@ -1,8 +1,12 @@
 PODS:
   - EaseMobSDKFull (2.3.2)
+  - IQKeyboardManager (4.0.10)
+  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - EaseMobSDKFull (from `https://github.com/easemob/sdk-ios-cocoapods-integration.git`)
+  - IQKeyboardManager
+  - Masonry
 
 EXTERNAL SOURCES:
   EaseMobSDKFull:
@@ -15,7 +19,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   EaseMobSDKFull: 8649d2f2c9d37507baf4834a622bcbf0a982877f
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
-PODFILE CHECKSUM: 46c6313b81db65efe23d5c01283dda09e5d13dcc
+PODFILE CHECKSUM: 8d22856fb88a0d4ed71a34478dd459c31f44d672
 
 COCOAPODS: 1.2.1

@@ -25,7 +25,8 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(20, 20, self.view.frame.size.width - 40, 40);
     btn.backgroundColor = [UIColor lightGrayColor];
-    btn.clipsToBounds = 10;
+    btn.layer.cornerRadius = 10;
+    btn.clipsToBounds = YES;
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     NSString *str = [[EaseMob sharedInstance].chatManager loginInfo][@"username"];
     [btn setTitle:[NSString stringWithFormat:@"退出(%@)", str] forState:UIControlStateNormal];

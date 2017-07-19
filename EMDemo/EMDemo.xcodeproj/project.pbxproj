@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11A351241F0B67B1006134A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351231F0B67B1006134A2 /* main.m */; };
 		11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A351261F0B67B1006134A2 /* AppDelegate.m */; };
-		11A3512F1F0B67B1006134A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A3512E1F0B67B1006134A2 /* Assets.xcassets */; };
 		11A351321F0B67B1006134A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A351301F0B67B1006134A2 /* LaunchScreen.storyboard */; };
 		11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3513C1F0B6BFD006134A2 /* BLLoginController.m */; };
 		11A3513F1F0B6C12006134A2 /* BLLoginController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A3513E1F0B6C12006134A2 /* BLLoginController.storyboard */; };
@@ -30,6 +29,7 @@
 		11A352841F0F6A65006134A2 /* BLSharedEM.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352831F0F6A64006134A2 /* BLSharedEM.m */; };
 		11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352861F0F7A74006134A2 /* BLFriendRequestController.m */; };
 		11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */; };
+		11DCC8731F1F4CA300BD1410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DCC8721F1F4CA300BD1410 /* Assets.xcassets */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,6 @@
 		11A351231F0B67B1006134A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		11A351251F0B67B1006134A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11A351261F0B67B1006134A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		11A3512E1F0B67B1006134A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11A351311F0B67B1006134A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11A351331F0B67B1006134A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A3513B1F0B6BFD006134A2 /* BLLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLLoginController.h; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		11A352861F0F7A74006134A2 /* BLFriendRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFriendRequestController.m; sourceTree = "<group>"; };
 		11DCC86F1F1F33DF00BD1410 /* BLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatViewController.h; sourceTree = "<group>"; };
 		11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatViewController.m; sourceTree = "<group>"; };
+		11DCC8721F1F4CA300BD1410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 		11A351221F0B67B1006134A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				11A3512E1F0B67B1006134A2 /* Assets.xcassets */,
+				11DCC8721F1F4CA300BD1410 /* Assets.xcassets */,
 				11A351301F0B67B1006134A2 /* LaunchScreen.storyboard */,
 				11A351331F0B67B1006134A2 /* Info.plist */,
 				11A351231F0B67B1006134A2 /* main.m */,
@@ -371,8 +371,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A351321F0B67B1006134A2 /* LaunchScreen.storyboard in Resources */,
+				11DCC8731F1F4CA300BD1410 /* Assets.xcassets in Resources */,
 				11A3513F1F0B6C12006134A2 /* BLLoginController.storyboard in Resources */,
-				11A3512F1F0B67B1006134A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

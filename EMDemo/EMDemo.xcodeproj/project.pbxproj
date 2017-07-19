@@ -29,6 +29,7 @@
 		11A352801F0DE432006134A2 /* BLAddFriendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A3527F1F0DE432006134A2 /* BLAddFriendController.m */; };
 		11A352841F0F6A65006134A2 /* BLSharedEM.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352831F0F6A64006134A2 /* BLSharedEM.m */; };
 		11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352861F0F7A74006134A2 /* BLFriendRequestController.m */; };
+		11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		11A352831F0F6A64006134A2 /* BLSharedEM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSharedEM.m; sourceTree = "<group>"; };
 		11A352851F0F7A74006134A2 /* BLFriendRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFriendRequestController.h; sourceTree = "<group>"; };
 		11A352861F0F7A74006134A2 /* BLFriendRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFriendRequestController.m; sourceTree = "<group>"; };
+		11DCC86F1F1F33DF00BD1410 /* BLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatViewController.h; sourceTree = "<group>"; };
+		11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatViewController.m; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +184,8 @@
 			children = (
 				11A352671F0B950E006134A2 /* BLConversationVC.h */,
 				11A352681F0B950E006134A2 /* BLConversationVC.m */,
+				11DCC86F1F1F33DF00BD1410 /* BLChatViewController.h */,
+				11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				11A352801F0DE432006134A2 /* BLAddFriendController.m in Sources */,
 				11A351241F0B67B1006134A2 /* main.m in Sources */,
 				11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */,
+				11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */,
 				11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 #import <EaseMob.h>
 #import "BLSharedEM.h"
 #import "BLFriendRequestController.h"
+#import "BLChatViewController.h"
 
 @interface BLAddressBookVC ()<EMChatManagerDelegate ,UITableViewDataSource, UITableViewDelegate, BLFriendRequestControllerDelegate>
 @property (nonatomic, strong)BLFriendRequestController *frc;
@@ -103,6 +104,15 @@
 
         [self.frc.tableView reloadData];
         [self.navigationController pushViewController:self.frc animated:YES];
+    } else if (indexPath.section == 1) {
+        NSLog(@"%zd--被点击",indexPath.row);
+        
+        // push时隐藏tabbar, 返回来时tabbar恢复正常
+        self.hidesBottomBarWhenPushed = YES;
+        BLChatViewController *chatVC = [[BLChatViewController alloc] init];
+        chatVC.integerRow = indexPath.row;
+        [self.navigationController pushViewController:chatVC animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
     }
 }
 

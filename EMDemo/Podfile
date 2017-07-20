@@ -4,6 +4,5 @@ target 'EMDemo' do
 
 pod 'EaseMobSDKFull', :git => 'https://github.com/easemob/sdk-ios-cocoapods-integration.git'
 pod ‘Masonry’
-pod ‘IQKeyboardManager’
 
 end

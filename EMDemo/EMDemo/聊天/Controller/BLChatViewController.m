@@ -11,7 +11,9 @@
 #import <Masonry.h>
 
 @interface BLChatViewController ()
-
+@property(nonatomic, weak) UITextView *textV;
+@property(nonatomic, weak) UIView *bottomV;
+@property(nonatomic, weak) UITableView *tableV;
 @end
 
 @implementation BLChatViewController
@@ -23,14 +25,51 @@
     self.navigationItem.title = buddy.username;
 
     [self setupUI];
+    
+    // 监听键盘弹出
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    // 监听键盘退出
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+#pragma mark - 监听键盘弹出方法
+- (void)keyboardWillShow:(NSNotification *)noti {
+    
+    // 获取键盘frame
+    CGRect keyboardF = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    // 获取键盘动画时间
+    CGFloat duration = [noti.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        [self.bottomV mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-keyboardF.size.height);
+        }];
+        [self.view layoutIfNeeded];
+    }];
+}
+
+#pragma mark - 监听键盘收回
+- (void)keyboardWillHide:(NSNotification *)noti {
+    CGFloat duration = [noti.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        [self.bottomV mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view.mas_bottom);
+        }];
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)setupUI {
     
     UIView *bottomV = [[UIView alloc] init];
     bottomV.backgroundColor = [UIColor lightGrayColor];
+    self.bottomV = bottomV;
     
     UITableView *tableV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40-64) style:UITableViewStylePlain];
+    tableV.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.tableV = tableV;
     
     UIButton *speechBtn = [self createBtnWithImage:@"chatBar_record"];
     UIButton *emojBtn = [self createBtnWithImage:@"chatBar_face"];
@@ -38,11 +77,13 @@
     
     UITextView *textV = [[UITextView alloc] init];
     textV.backgroundColor = [UIColor grayColor];
-    textV.layer.cornerRadius = 10;
+    [textV setFont:[UIFont systemFontOfSize:15]];
+    textV.layer.cornerRadius = 7;
     textV.clipsToBounds = YES;
+    self.textV = textV;
     
     [self.view addSubview:bottomV];
-    [self.view addSubview:tableV];
+    [self.view insertSubview:tableV atIndex:0];
     [bottomV addSubview:speechBtn];
     [bottomV addSubview:emojBtn];
     [bottomV addSubview:moreBtn];
@@ -89,6 +130,14 @@
     [btn setBackgroundImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
     [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@Selected", imageStr]] forState:UIControlStateSelected];
     return btn;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.textV endEditing:YES];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

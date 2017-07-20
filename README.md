@@ -73,7 +73,8 @@
   6.删除好友
   
   7.退出登录
-  
+  
+  
   8.聊天  
     ( 其中写底部视图时, 使用pod导入IQKeyboardManager来自动调整键盘弹出时底部视图的高度, 但是IQKeyboardManager会把顶部的导航栏顶没, 这个问题暂时没有解决, 所以删除了IQKeyboardManager, 并手动更新的布局 )
 

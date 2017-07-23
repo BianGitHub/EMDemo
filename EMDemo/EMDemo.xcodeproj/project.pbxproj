@@ -30,6 +30,8 @@
 		11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A352861F0F7A74006134A2 /* BLFriendRequestController.m */; };
 		11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */; };
 		11DCC8731F1F4CA300BD1410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DCC8721F1F4CA300BD1410 /* Assets.xcassets */; };
+		11DCC8761F2448E300BD1410 /* BLChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8751F2448E300BD1410 /* BLChatCell.m */; };
+		11DCC8791F24541700BD1410 /* BLCharView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8781F24541700BD1410 /* BLCharView.m */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,10 @@
 		11DCC86F1F1F33DF00BD1410 /* BLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatViewController.h; sourceTree = "<group>"; };
 		11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatViewController.m; sourceTree = "<group>"; };
 		11DCC8721F1F4CA300BD1410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11DCC8741F2448E300BD1410 /* BLChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatCell.h; sourceTree = "<group>"; };
+		11DCC8751F2448E300BD1410 /* BLChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatCell.m; sourceTree = "<group>"; };
+		11DCC8771F24541700BD1410 /* BLCharView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCharView.h; sourceTree = "<group>"; };
+		11DCC8781F24541700BD1410 /* BLCharView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCharView.m; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +206,10 @@
 		11A3525E1F0B94BA006134A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11DCC8741F2448E300BD1410 /* BLChatCell.h */,
+				11DCC8751F2448E300BD1410 /* BLChatCell.m */,
+				11DCC8771F24541700BD1410 /* BLCharView.h */,
+				11DCC8781F24541700BD1410 /* BLCharView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DCC8761F2448E300BD1410 /* BLChatCell.m in Sources */,
 				11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */,
 				11A3527C1F0DDFEA006134A2 /* BLConfigVC.m in Sources */,
 				11A3525A1F0B92DB006134A2 /* BLNavController.m in Sources */,
@@ -440,6 +451,7 @@
 				11A352841F0F6A65006134A2 /* BLSharedEM.m in Sources */,
 				11A352801F0DE432006134A2 /* BLAddFriendController.m in Sources */,
 				11A351241F0B67B1006134A2 /* main.m in Sources */,
+				11DCC8791F24541700BD1410 /* BLCharView.m in Sources */,
 				11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */,
 				11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */,
 				11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */,

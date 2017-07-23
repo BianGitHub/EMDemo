@@ -7,13 +7,14 @@
 //
 
 #import "BLChatViewController.h"
+#import "BLCharView.h"
 #import <EaseMob.h>
 #import <Masonry.h>
 
 @interface BLChatViewController ()
-@property(nonatomic, weak) UITextView *textV;
-@property(nonatomic, weak) UIView *bottomV;
-@property(nonatomic, weak) UITableView *tableV;
+@property(nonatomic, strong) UITextView *textV;
+@property(nonatomic, strong) UIView *bottomV;
+@property(nonatomic, strong) BLCharView *tableV;
 @end
 
 @implementation BLChatViewController
@@ -23,7 +24,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     EMBuddy *buddy = [[EaseMob sharedInstance].chatManager buddyList][self.integerRow];
     self.navigationItem.title = buddy.username;
-
     [self setupUI];
     
     // 监听键盘弹出
@@ -63,62 +63,58 @@
 
 - (void)setupUI {
     
-    UIView *bottomV = [[UIView alloc] init];
-    bottomV.backgroundColor = [UIColor lightGrayColor];
-    self.bottomV = bottomV;
+    self.bottomV = [[UIView alloc] init];
+    self.bottomV.backgroundColor = [UIColor lightGrayColor];
     
-    UITableView *tableV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40-64) style:UITableViewStylePlain];
-    tableV.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    self.tableV = tableV;
+    self.tableV = [[BLCharView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40-64) style:UITableViewStylePlain];
     
     UIButton *speechBtn = [self createBtnWithImage:@"chatBar_record"];
     UIButton *emojBtn = [self createBtnWithImage:@"chatBar_face"];
     UIButton *moreBtn = [self createBtnWithImage:@"chatBar_more"];
     
-    UITextView *textV = [[UITextView alloc] init];
-    textV.backgroundColor = [UIColor grayColor];
-    [textV setFont:[UIFont systemFontOfSize:15]];
-    textV.layer.cornerRadius = 7;
-    textV.clipsToBounds = YES;
-    self.textV = textV;
+    self.textV = [[UITextView alloc] init];
+    self.textV.backgroundColor = [UIColor grayColor];
+    [self.textV setFont:[UIFont systemFontOfSize:15]];
+    self.textV.layer.cornerRadius = 7;
+    self.textV.clipsToBounds = YES;
     
-    [self.view addSubview:bottomV];
-    [self.view insertSubview:tableV atIndex:0];
-    [bottomV addSubview:speechBtn];
-    [bottomV addSubview:emojBtn];
-    [bottomV addSubview:moreBtn];
-    [bottomV addSubview:textV];
+    [self.view addSubview:self.bottomV];
+    [self.view insertSubview:self.tableV atIndex:0];
+    [self.bottomV addSubview:speechBtn];
+    [self.bottomV addSubview:emojBtn];
+    [self.bottomV addSubview:moreBtn];
+    [self.bottomV addSubview:self.textV];
     
     
     // masonry布局
-    [bottomV mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom);
         make.height.equalTo(@40);
     }];
     
     [speechBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bottomV.mas_left).offset(3);
-        make.bottom.equalTo(bottomV.mas_bottom).offset(-3);
+        make.left.equalTo(self.bottomV.mas_left).offset(3);
+        make.bottom.equalTo(self.bottomV.mas_bottom).offset(-3);
         make.size.equalTo(@33);
     }];
     
     [moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bottomV.mas_right).offset(-3);
-        make.bottom.equalTo(bottomV.mas_bottom).offset(-3);
+        make.right.equalTo(self.bottomV.mas_right).offset(-3);
+        make.bottom.equalTo(self.bottomV.mas_bottom).offset(-3);
         make.size.equalTo(@33);
     }];
     
     [emojBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(moreBtn.mas_left).offset(-6);
-        make.bottom.equalTo(bottomV.mas_bottom).offset(-3);
+        make.bottom.equalTo(self.bottomV.mas_bottom).offset(-3);
         make.size.equalTo(@33);
     }];
     
-    [textV mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.textV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(speechBtn.mas_right).offset(5);
         make.right.equalTo(emojBtn.mas_left).offset(-5);
-        make.bottom.equalTo(bottomV.mas_bottom).offset(-3);
+        make.bottom.equalTo(self.bottomV.mas_bottom).offset(-3);
         make.height.equalTo(@33);
     }];
     

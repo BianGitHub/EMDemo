@@ -1,20 +1,20 @@
 //
-//  BLChatCell.m
+//  BLChatSendCell.m
 //  EMDemo
 //
 //  Created by 边雷 on 2017/7/23.
 //  Copyright © 2017年 Mac-b. All rights reserved.
 //
 
-#import "BLChatCell.h"
+#import "BLChatSendCell.h"
 #import <Masonry.h>
 
-@interface BLChatCell ()
+@interface BLChatSendCell ()
 @property(nonatomic, strong) UIImageView *iconImage;
 @property(nonatomic, strong) UILabel *messageLab;
 @end
 
-@implementation BLChatCell
+@implementation BLChatSendCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -33,7 +33,7 @@
     self.messageLab.preferredMaxLayoutWidth = self.frame.size.width - 120;
     self.messageLab.backgroundColor = [UIColor clearColor];
     self.messageLab.lineBreakMode = NSLineBreakByWordWrapping;
-    UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_receiver_bg"]];
+    UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_sender_bg"]];
     
     [self.contentView addSubview:self.iconImage];
     [self.contentView insertSubview:bgImage atIndex:0];
@@ -41,7 +41,8 @@
     
     // 布局
     [self.iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self).offset(10);
+        make.top.equalTo(self).offset(10);
+        make.right.equalTo(self.mas_right).offset(-10);
         make.height.width.equalTo(@30);
     }];
     
@@ -52,7 +53,7 @@
     
     [self.messageLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(15);
-        make.left.equalTo(self.iconImage.mas_right).offset(20);
+        make.right.equalTo(self.iconImage.mas_left).offset(-20);
     }];
     
 }

@@ -32,6 +32,7 @@
 		11DCC8731F1F4CA300BD1410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DCC8721F1F4CA300BD1410 /* Assets.xcassets */; };
 		11DCC8761F2448E300BD1410 /* BLChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8751F2448E300BD1410 /* BLChatCell.m */; };
 		11DCC8791F24541700BD1410 /* BLCharView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8781F24541700BD1410 /* BLCharView.m */; };
+		11DCC8821F246F7F00BD1410 /* BLChatSendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8811F246F7F00BD1410 /* BLChatSendCell.m */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		11DCC8751F2448E300BD1410 /* BLChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatCell.m; sourceTree = "<group>"; };
 		11DCC8771F24541700BD1410 /* BLCharView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCharView.h; sourceTree = "<group>"; };
 		11DCC8781F24541700BD1410 /* BLCharView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCharView.m; sourceTree = "<group>"; };
+		11DCC8801F246F7F00BD1410 /* BLChatSendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatSendCell.h; sourceTree = "<group>"; };
+		11DCC8811F246F7F00BD1410 /* BLChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatSendCell.m; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +213,8 @@
 				11DCC8751F2448E300BD1410 /* BLChatCell.m */,
 				11DCC8771F24541700BD1410 /* BLCharView.h */,
 				11DCC8781F24541700BD1410 /* BLCharView.m */,
+				11DCC8801F246F7F00BD1410 /* BLChatSendCell.h */,
+				11DCC8811F246F7F00BD1410 /* BLChatSendCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */,
 				11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */,
 				11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */,
+				11DCC8821F246F7F00BD1410 /* BLChatSendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

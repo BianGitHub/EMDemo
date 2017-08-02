@@ -182,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				11A3525C1F0B94BA006134A2 /* Controller */,
-				11A3525D1F0B94BA006134A2 /* Model */,
 				11A3525E1F0B94BA006134A2 /* View */,
 			);
 			path = "聊天";
@@ -197,13 +196,6 @@
 				11DCC8701F1F33DF00BD1410 /* BLChatViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		11A3525D1F0B94BA006134A2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		11A3525E1F0B94BA006134A2 /* View */ = {

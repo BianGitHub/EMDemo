@@ -10,11 +10,17 @@
 #import "BLCharView.h"
 #import <EaseMob.h>
 #import <Masonry.h>
+#import "BLChatCell.h"
+#import "BLChatSendCell.h"
+
+static NSString *chatCell = @"chatCell";
+static NSString *chatSendCell = @"chatSendCell";
 
 @interface BLChatViewController ()
 @property(nonatomic, strong) UITextView *textV;
 @property(nonatomic, strong) UIView *bottomV;
-@property(nonatomic, strong) BLCharView *tableV;
+//@property(nonatomic, strong) BLCharView *tableV;
+@property(nonatomic, strong) UITableView *tableV;
 @end
 
 @implementation BLChatViewController
@@ -67,6 +73,9 @@
     self.bottomV.backgroundColor = [UIColor lightGrayColor];
     
     self.tableV = [[BLCharView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40-64) style:UITableViewStylePlain];
+    
+    [self.tableV registerClass:[BLChatCell class] forCellReuseIdentifier:chatCell];
+    [self.tableV registerClass:[BLChatSendCell class] forCellReuseIdentifier:chatSendCell];
     
     UIButton *speechBtn = [self createBtnWithImage:@"chatBar_record"];
     UIButton *emojBtn = [self createBtnWithImage:@"chatBar_face"];

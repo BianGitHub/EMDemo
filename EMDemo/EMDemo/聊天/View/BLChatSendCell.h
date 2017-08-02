@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BLChatSendCell : UITableViewCell
-@property(nonatomic, copy) NSString *str;
+@property(nonatomic, copy)NSString *str;
 @end

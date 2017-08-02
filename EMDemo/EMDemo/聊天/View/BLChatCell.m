@@ -20,6 +20,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupUI];
         self.str = [NSString string];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
@@ -33,6 +34,7 @@
     self.messageLab.preferredMaxLayoutWidth = self.frame.size.width - 120;
     self.messageLab.backgroundColor = [UIColor clearColor];
     self.messageLab.lineBreakMode = NSLineBreakByWordWrapping;
+//    self.messageLab.text = @"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_receiver_bg"]];
     
     [self.contentView addSubview:self.iconImage];
@@ -41,7 +43,7 @@
     
     // 布局
     [self.iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self).offset(10);
+        make.top.left.equalTo(self.contentView).offset(10);
         make.height.width.equalTo(@30);
     }];
     
@@ -51,7 +53,8 @@
     }];
     
     [self.messageLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(15);
+        make.top.equalTo(self.contentView).offset(15);
+        make.bottom.equalTo(self.contentView).offset(-15);
         make.left.equalTo(self.iconImage.mas_right).offset(20);
     }];
     
@@ -60,7 +63,7 @@
 - (void)setStr:(NSMutableString *)str {
     _str = str;
     self.messageLab.text = str;
-}
 
+}
 
 @end

@@ -12,16 +12,20 @@
 
 static NSString *chatCell = @"chatCell";
 static NSString *chatSendCell = @"chatSendCell";
-@interface BLCharView ()<UITableViewDelegate, UITableViewDataSource>
+@interface BLCharView ()<UITableViewDataSource>
 @end
 
-@implementation BLCharView
+@implementation BLCharView{
+    NSArray *_arr;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     if (self = [super initWithFrame:frame style:style]) {
+        self.estimatedRowHeight = 200;
+        self.rowHeight = UITableViewAutomaticDimension;
         self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         self.dataSource = self;
-        self.delegate = self;
+        _arr = @[@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd"];
         [self registerClass:[BLChatCell class] forCellReuseIdentifier:chatCell];
         [self registerClass:[BLChatSendCell class] forCellReuseIdentifier:chatSendCell];
     }
@@ -30,7 +34,7 @@ static NSString *chatSendCell = @"chatSendCell";
 
 #pragma mark - UITableviewDatesource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return _arr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -38,20 +42,21 @@ static NSString *chatSendCell = @"chatSendCell";
     if (indexPath.row % 2 == 0) {
         
         BLChatCell *cell = [tableView dequeueReusableCellWithIdentifier:chatCell forIndexPath:indexPath];
-        cell.str = @"xxxas fasf adasdasdasfasfawfarwaafafawfafetafawafafaw";
-        cell.backgroundColor = [UIColor blueColor];
+        
+        cell.str = _arr[indexPath.row];
+        
+        cell.backgroundColor = [UIColor grayColor];
         return cell;
     } else {
         BLChatSendCell *cell = [tableView dequeueReusableCellWithIdentifier:chatSendCell forIndexPath:indexPath];
-        cell.str = @"xxxas fasf adasdasdasfasfawfarwaafafawfafetafawafafaw";
-        cell.backgroundColor = [UIColor blueColor];
+        
+        cell.str = _arr[indexPath.row];
+        cell.backgroundColor = [UIColor lightGrayColor];
+        
         return cell;
     }
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
-}
 
 @end

@@ -19,7 +19,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupUI];
-        self.str = [NSString string];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
@@ -32,6 +32,12 @@
     self.messageLab.numberOfLines = [self.messageLab.text length];
     self.messageLab.preferredMaxLayoutWidth = self.frame.size.width - 120;
     self.messageLab.backgroundColor = [UIColor clearColor];
+//    self.messageLab.text = @"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+//    NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:13]};
+//    
+//    self.rect = [self.messageLab.text boundingRectWithSize:CGSizeMake(self.bounds.size.width - 120, 300) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil];
+    
+    
     self.messageLab.lineBreakMode = NSLineBreakByWordWrapping;
     UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_sender_bg"]];
     
@@ -41,8 +47,8 @@
     
     // 布局
     [self.iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(10);
-        make.right.equalTo(self.mas_right).offset(-10);
+        make.top.equalTo(self.contentView).offset(10);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
         make.height.width.equalTo(@30);
     }];
     
@@ -52,16 +58,19 @@
     }];
     
     [self.messageLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(15);
+        make.top.equalTo(self.contentView).offset(15);
+        make.bottom.equalTo(self.contentView).offset(-15);
+//        make.height.equalTo(@(self.rect.size.height));
         make.right.equalTo(self.iconImage.mas_left).offset(-20);
     }];
+    
+    
     
 }
 
 - (void)setStr:(NSMutableString *)str {
     _str = str;
     self.messageLab.text = str;
+    
 }
-
-
 @end

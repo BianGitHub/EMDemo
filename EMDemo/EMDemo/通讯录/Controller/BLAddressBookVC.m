@@ -111,6 +111,7 @@
         self.hidesBottomBarWhenPushed = YES;
         BLChatViewController *chatVC = [[BLChatViewController alloc] init];
         chatVC.integerRow = indexPath.row;
+        chatVC.buddy = [[EaseMob sharedInstance].chatManager buddyList][indexPath.row];
         [self.navigationController pushViewController:chatVC animated:YES];
         self.hidesBottomBarWhenPushed = NO;
     }

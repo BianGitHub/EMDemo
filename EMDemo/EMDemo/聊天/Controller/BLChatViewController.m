@@ -16,7 +16,7 @@
 static NSString *chatCell = @"chatCell";
 static NSString *chatSendCell = @"chatSendCell";
 
-@interface BLChatViewController ()
+@interface BLChatViewController ()<UITextViewDelegate>
 @property(nonatomic, strong) UITextView *textV;
 @property(nonatomic, strong) UIView *bottomV;
 //@property(nonatomic, strong) BLCharView *tableV;
@@ -82,10 +82,12 @@ static NSString *chatSendCell = @"chatSendCell";
     UIButton *moreBtn = [self createBtnWithImage:@"chatBar_more"];
     
     self.textV = [[UITextView alloc] init];
+    self.textV.delegate = self;
     self.textV.backgroundColor = [UIColor grayColor];
     [self.textV setFont:[UIFont systemFontOfSize:15]];
     self.textV.layer.cornerRadius = 7;
     self.textV.clipsToBounds = YES;
+    self.textV.returnKeyType = UIReturnKeySend;
     
     [self.view addSubview:self.bottomV];
     [self.view insertSubview:self.tableV atIndex:0];
@@ -143,6 +145,31 @@ static NSString *chatSendCell = @"chatSendCell";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - UITextVeiwDelegeate
+- (void)textViewDidChange:(UITextView *)textView {
+    
+    NSLog(@"%@", textView.text);
+    // 监听换行就是监听发送按钮
+    if ([textView.text hasSuffix:@"\n"]) {
+        NSLog(@"发送");
+        [self sendTextWithText:textView.text];
+    }
+}
+
+- (void)sendTextWithText:(NSString *)text {
+    
+    // 发送消息
+    EMChatText *chatTet = [[EMChatText alloc] initWithText:text];
+    EMTextMessageBody *textBody = [[EMTextMessageBody alloc] initWithChatObject:chatTet];
+    EMMessage *message = [[EMMessage alloc] initWithReceiver:self.buddy.username bodies:@[textBody]];
+    
+    [[EaseMob sharedInstance].chatManager asyncSendMessage:message progress:nil prepare:^(EMMessage *message, EMError *error) {
+        NSLog(@"准备发送 %@-%@", error, self.buddy.username);
+    } onQueue:nil completion:^(EMMessage *message, EMError *error) {
+        NSLog(@"发送成功 %@", error);
+    } onQueue:nil];
 }
 
 @end

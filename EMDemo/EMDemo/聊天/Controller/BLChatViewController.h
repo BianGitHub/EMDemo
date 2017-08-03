@@ -10,4 +10,5 @@
 
 @interface BLChatViewController : UIViewController
 @property(nonatomic, assign) NSInteger integerRow;
+@property(nonatomic, strong) EMBuddy *buddy;
 @end

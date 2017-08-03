@@ -58,5 +58,4 @@ static NSString *chatSendCell = @"chatSendCell";
     
 }
 
-
 @end

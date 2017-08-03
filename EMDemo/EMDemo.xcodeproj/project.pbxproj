@@ -79,6 +79,7 @@
 		11DCC8781F24541700BD1410 /* BLCharView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCharView.m; sourceTree = "<group>"; };
 		11DCC8801F246F7F00BD1410 /* BLChatSendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatSendCell.h; sourceTree = "<group>"; };
 		11DCC8811F246F7F00BD1410 /* BLChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatSendCell.m; sourceTree = "<group>"; };
+		11DCCF271F32BB0F00BD1410 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +142,7 @@
 				11A351301F0B67B1006134A2 /* LaunchScreen.storyboard */,
 				11A351331F0B67B1006134A2 /* Info.plist */,
 				11A351231F0B67B1006134A2 /* main.m */,
+				11DCCF271F32BB0F00BD1410 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -568,6 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5S24Y9KL4M;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EMDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = EMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "b-Mac.EMDemo";
@@ -581,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5S24Y9KL4M;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EMDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = EMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "b-Mac.EMDemo";

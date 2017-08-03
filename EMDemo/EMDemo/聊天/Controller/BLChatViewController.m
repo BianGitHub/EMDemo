@@ -236,9 +236,16 @@ static NSString *chatSendCell = @"chatSendCell";
 #pragma mark - EMChatManagerDelegate   
 // 接受到消息
 - (void)didReceiveMessage:(EMMessage *)message {
-    [_arr addObject:message];
-    [self.tableV reloadData];
-    [self scrollToLastIndex];
+    
+    // 当别的账号跟此账号聊天也会调用此方法
+    // 所以要判断from
+    if ([message.from isEqualToString:self.buddy.username]) {
+        
+        [_arr addObject:message];
+        [self.tableV reloadData];
+        [self scrollToLastIndex];
+    }
+    
 }
 
 @end

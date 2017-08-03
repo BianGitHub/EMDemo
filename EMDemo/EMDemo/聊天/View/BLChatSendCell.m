@@ -82,6 +82,12 @@
     if ([body isKindOfClass:[EMTextMessageBody class]]) {
         EMTextMessageBody *textbody = body;
         self.messageLab.text = textbody.text;
+    }else if([body isKindOfClass:[EMVideoMessageBody class]]) {
+        self.messageLab.text = @"[语音]";
+    }else if([body isKindOfClass:[EMImageMessageBody class]]){
+        self.messageLab.text = @"图片";
+    }else {
+        self.messageLab.text = @"未知类型";
     }
 }
 

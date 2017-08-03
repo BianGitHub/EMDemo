@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BLCharView : UITableView
-
+@property(nonatomic, strong) EMBuddy *buddy;
+@property(nonatomic, strong) NSMutableArray *messageArr;
 @end

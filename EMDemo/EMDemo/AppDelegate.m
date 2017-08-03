@@ -21,6 +21,7 @@
     
     //registerSDKWithAppKey: 注册的AppKey，详细见下面注释。
     //apnsCertName: 推送证书名（不需要加后缀），详细见下面注释。
+//    [[EaseMob sharedInstance] registerSDKWithAppKey:@"1189170704178205#emdemo" apnsCertName:nil];
     [[EaseMob sharedInstance] registerSDKWithAppKey:@"1189170704178205#emdemo" apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger:@(NO)}];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];

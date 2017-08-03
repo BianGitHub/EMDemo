@@ -15,9 +15,7 @@ static NSString *chatSendCell = @"chatSendCell";
 @interface BLCharView ()<UITableViewDataSource>
 @end
 
-@implementation BLCharView{
-    NSArray *_arr;
-}
+@implementation BLCharView
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     if (self = [super initWithFrame:frame style:style]) {
@@ -25,7 +23,7 @@ static NSString *chatSendCell = @"chatSendCell";
         self.rowHeight = UITableViewAutomaticDimension;
         self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         self.dataSource = self;
-        _arr = @[@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd",@"asdasdadasdadasdadadasdadsasdasdadasdasd"];
+        self.messageArr = [NSMutableArray array];
         [self registerClass:[BLChatCell class] forCellReuseIdentifier:chatCell];
         [self registerClass:[BLChatSendCell class] forCellReuseIdentifier:chatSendCell];
     }
@@ -34,28 +32,29 @@ static NSString *chatSendCell = @"chatSendCell";
 
 #pragma mark - UITableviewDatesource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _arr.count;
+    return self.messageArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row % 2 == 0) {
+    EMMessage *message = self.messageArr[indexPath.row];
+    if ([message.from isEqualToString:self.buddy.username]) {
         
         BLChatCell *cell = [tableView dequeueReusableCellWithIdentifier:chatCell forIndexPath:indexPath];
         
-        cell.str = _arr[indexPath.row];
-        
+        cell.message = message;
         cell.backgroundColor = [UIColor grayColor];
         return cell;
     } else {
         BLChatSendCell *cell = [tableView dequeueReusableCellWithIdentifier:chatSendCell forIndexPath:indexPath];
         
-        cell.str = _arr[indexPath.row];
+        cell.message = message;
         cell.backgroundColor = [UIColor lightGrayColor];
         
         return cell;
     }
     
 }
+
+
 
 @end

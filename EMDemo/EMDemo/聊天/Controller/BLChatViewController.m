@@ -20,16 +20,22 @@ static NSString *chatSendCell = @"chatSendCell";
 @property(nonatomic, strong) UITextView *textV;
 @property(nonatomic, strong) UIView *bottomV;
 //@property(nonatomic, strong) BLCharView *tableV;
-@property(nonatomic, strong) UITableView *tableV;
+@property(nonatomic, strong) BLCharView *tableV;
 @end
 
-@implementation BLChatViewController
+@implementation BLChatViewController {
+    NSMutableArray *_arr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = self.buddy.username;
     EMBuddy *buddy = [[EaseMob sharedInstance].chatManager buddyList][self.integerRow];
     self.navigationItem.title = buddy.username;
+    
+    _arr = [NSMutableArray array];
+    [self loadChatMessageData];
     [self setupUI];
     
     // 监听键盘弹出
@@ -73,7 +79,8 @@ static NSString *chatSendCell = @"chatSendCell";
     self.bottomV.backgroundColor = [UIColor lightGrayColor];
     
     self.tableV = [[BLCharView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40-64) style:UITableViewStylePlain];
-    
+    self.tableV.buddy = self.buddy;
+    self.tableV.messageArr = _arr;
     [self.tableV registerClass:[BLChatCell class] forCellReuseIdentifier:chatCell];
     [self.tableV registerClass:[BLChatSendCell class] forCellReuseIdentifier:chatSendCell];
     
@@ -155,6 +162,7 @@ static NSString *chatSendCell = @"chatSendCell";
     if ([textView.text hasSuffix:@"\n"]) {
         NSLog(@"发送");
         [self sendTextWithText:textView.text];
+        
     }
 }
 
@@ -164,12 +172,24 @@ static NSString *chatSendCell = @"chatSendCell";
     EMChatText *chatTet = [[EMChatText alloc] initWithText:text];
     EMTextMessageBody *textBody = [[EMTextMessageBody alloc] initWithChatObject:chatTet];
     EMMessage *message = [[EMMessage alloc] initWithReceiver:self.buddy.username bodies:@[textBody]];
-    
+    message.messageType = eMessageTypeChat; // 单聊  (默认)
+    NSString * path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSLog(@"path -----%@", path);
     [[EaseMob sharedInstance].chatManager asyncSendMessage:message progress:nil prepare:^(EMMessage *message, EMError *error) {
         NSLog(@"准备发送 %@-%@", error, self.buddy.username);
+        self.textV.text = @"";
     } onQueue:nil completion:^(EMMessage *message, EMError *error) {
         NSLog(@"发送成功 %@", error);
     } onQueue:nil];
+}
+
+- (void)loadChatMessageData {
+    // 会话对象 ---  获取本地聊天记录
+    EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:self
+                                    .buddy.username conversationType:eConversationTypeChat];
+    // 加载所有聊天记录
+    NSArray *messages = [conversation loadAllMessages];
+    [_arr addObjectsFromArray:messages];
 }
 
 @end

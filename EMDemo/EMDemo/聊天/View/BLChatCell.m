@@ -34,7 +34,6 @@
     self.messageLab.preferredMaxLayoutWidth = self.frame.size.width - 120;
     self.messageLab.backgroundColor = [UIColor clearColor];
     self.messageLab.lineBreakMode = NSLineBreakByWordWrapping;
-//    self.messageLab.text = @"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_receiver_bg"]];
     
     [self.contentView addSubview:self.iconImage];
@@ -64,6 +63,17 @@
     _str = str;
     self.messageLab.text = str;
 
+}
+
+- (void)setMessage:(EMMessage *)message {
+    _message = message;
+
+    id body = message.messageBodies[0];
+    
+    if ([body isKindOfClass:[EMTextMessageBody class]]) {
+        EMTextMessageBody *textbody = body;
+        self.messageLab.text = textbody.text; 
+    }
 }
 
 @end

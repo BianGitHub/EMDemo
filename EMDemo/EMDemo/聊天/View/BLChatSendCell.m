@@ -73,4 +73,16 @@
     self.messageLab.text = str;
     
 }
+
+- (void)setMessage:(EMMessage *)message {
+    _message = message;
+    
+    id body = message.messageBodies[0];
+    
+    if ([body isKindOfClass:[EMTextMessageBody class]]) {
+        EMTextMessageBody *textbody = body;
+        self.messageLab.text = textbody.text;
+    }
+}
+
 @end

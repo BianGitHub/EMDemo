@@ -10,4 +10,5 @@
 
 @interface BLChatCell : UITableViewCell
 @property(nonatomic, copy)NSString *str;
+@property(nonatomic, strong) EMMessage *message;
 @end

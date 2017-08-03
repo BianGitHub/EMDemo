@@ -351,7 +351,7 @@
 				TargetAttributes = {
 					11A3511E1F0B67B1006134A2 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 5S24Y9KL4M;
+						DevelopmentTeam = 9S578ADP92;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -569,7 +569,7 @@
 			baseConfigurationReference = 68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5S24Y9KL4M;
+				DEVELOPMENT_TEAM = 9S578ADP92;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EMDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = EMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -583,7 +583,7 @@
 			baseConfigurationReference = 3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5S24Y9KL4M;
+				DEVELOPMENT_TEAM = 9S578ADP92;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EMDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = EMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

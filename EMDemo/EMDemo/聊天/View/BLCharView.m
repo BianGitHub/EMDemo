@@ -43,13 +43,12 @@ static NSString *chatSendCell = @"chatSendCell";
         BLChatCell *cell = [tableView dequeueReusableCellWithIdentifier:chatCell forIndexPath:indexPath];
         
         cell.message = message;
-        cell.backgroundColor = [UIColor grayColor];
+
         return cell;
     } else {
         BLChatSendCell *cell = [tableView dequeueReusableCellWithIdentifier:chatSendCell forIndexPath:indexPath];
         
         cell.message = message;
-        cell.backgroundColor = [UIColor lightGrayColor];
         
         return cell;
     }

@@ -33,7 +33,6 @@ static NSString *chatSendCell = @"chatSendCell";
     self.title = self.buddy.username;
     EMBuddy *buddy = [[EaseMob sharedInstance].chatManager buddyList][self.integerRow];
     self.navigationItem.title = buddy.username;
-    
     _arr = [NSMutableArray array];
     [self loadChatMessageData];
     [self setupUI];
@@ -57,8 +56,17 @@ static NSString *chatSendCell = @"chatSendCell";
         [self.bottomV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.view.mas_bottom).offset(-keyboardF.size.height);
         }];
+//        [self.tableV mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(self.bottomV.mas_top);
+//            make.height.equalTo(@(self.view.bounds.size.height-40-64-keyboardF.size.height));
+//        }];
         [self.view layoutIfNeeded];
     }];
+    [UIView animateWithDuration:duration animations:^{
+        [self scrollToLastIndex];
+    }];
+    
+    
 }
 
 #pragma mark - 监听键盘收回
@@ -70,6 +78,7 @@ static NSString *chatSendCell = @"chatSendCell";
             make.bottom.equalTo(self.view.mas_bottom);
         }];
         [self.view layoutIfNeeded];
+
     }];
 }
 
@@ -105,6 +114,11 @@ static NSString *chatSendCell = @"chatSendCell";
     
     
     // masonry布局
+    [self.tableV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.bottomV.mas_top);
+    }];
+    
     [self.bottomV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom);
@@ -146,6 +160,11 @@ static NSString *chatSendCell = @"chatSendCell";
     return btn;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self scrollToLastIndex];
+    [self.tableV reloadData];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.textV endEditing:YES];
 }
@@ -161,12 +180,17 @@ static NSString *chatSendCell = @"chatSendCell";
     // 监听换行就是监听发送按钮
     if ([textView.text hasSuffix:@"\n"]) {
         NSLog(@"发送");
-        [self sendTextWithText:textView.text];
-        
+        NSString *str = self.textV.text;
+        self.textV.text = @"";
+        [self sendTextWithText:str];
     }
 }
 
 - (void)sendTextWithText:(NSString *)text {
+    text = [text substringToIndex:text.length-1];
+    if ([text isEqualToString:@""]) {
+        return;
+    }
     
     // 发送消息
     EMChatText *chatTet = [[EMChatText alloc] initWithText:text];
@@ -177,14 +201,14 @@ static NSString *chatSendCell = @"chatSendCell";
     NSLog(@"path -----%@", path);
     [[EaseMob sharedInstance].chatManager asyncSendMessage:message progress:nil prepare:^(EMMessage *message, EMError *error) {
         NSLog(@"准备发送 %@-%@", error, self.buddy.username);
-        self.textV.text = @"";
     } onQueue:nil completion:^(EMMessage *message, EMError *error) {
         NSLog(@"发送成功 %@", error);
+        // 添加到数据源, 刷新表格显示
+        [_arr addObject:message];
+        [self.tableV reloadData];
+        // 发送完消息向上滚动
+        [self scrollToLastIndex];
     } onQueue:nil];
-    
-    // 添加到数据源, 刷新表格显示
-    [_arr addObject:message];
-    [self.tableV reloadData];
     
     
 }
@@ -196,6 +220,17 @@ static NSString *chatSendCell = @"chatSendCell";
     // 加载所有聊天记录
     NSArray *messages = [conversation loadAllMessages];
     [_arr addObjectsFromArray:messages];
+}
+
+// 滚动到最后一行
+- (void)scrollToLastIndex {
+    
+    if (_arr.count == 0) {
+        return;
+    }
+    
+    NSIndexPath *indexP = [NSIndexPath indexPathForRow:_arr.count - 1 inSection:0];
+    [self.tableV scrollToRowAtIndexPath:indexP atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 @end

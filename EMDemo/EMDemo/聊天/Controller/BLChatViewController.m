@@ -90,6 +90,7 @@ static NSString *chatSendCell = @"chatSendCell";
     self.tableV = [[BLCharView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40-64) style:UITableViewStylePlain];
     self.tableV.buddy = self.buddy;
     self.tableV.messageArr = _arr;
+    self.tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableV registerClass:[BLChatCell class] forCellReuseIdentifier:chatCell];
     [self.tableV registerClass:[BLChatSendCell class] forCellReuseIdentifier:chatSendCell];
     
@@ -182,6 +183,8 @@ static NSString *chatSendCell = @"chatSendCell";
         NSLog(@"发送");
         NSString *str = self.textV.text;
         self.textV.text = @"";
+    // 让光标显示在正中间 ----------------
+        [self.textV setContentOffset:CGPointZero animated:YES];
         [self sendTextWithText:str];
     }
 }

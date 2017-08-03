@@ -37,6 +37,7 @@ static NSString *chatSendCell = @"chatSendCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EMMessage *message = self.messageArr[indexPath.row];
+    // 发送者是对方, 那么在左边显示, 否则自己再右面显示聊天记录
     if ([message.from isEqualToString:self.buddy.username]) {
         
         BLChatCell *cell = [tableView dequeueReusableCellWithIdentifier:chatCell forIndexPath:indexPath];

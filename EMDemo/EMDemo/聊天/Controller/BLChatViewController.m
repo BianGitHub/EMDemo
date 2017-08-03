@@ -181,6 +181,12 @@ static NSString *chatSendCell = @"chatSendCell";
     } onQueue:nil completion:^(EMMessage *message, EMError *error) {
         NSLog(@"发送成功 %@", error);
     } onQueue:nil];
+    
+    // 添加到数据源, 刷新表格显示
+    [_arr addObject:message];
+    [self.tableV reloadData];
+    
+    
 }
 
 - (void)loadChatMessageData {

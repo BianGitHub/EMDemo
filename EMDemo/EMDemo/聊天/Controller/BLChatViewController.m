@@ -16,7 +16,7 @@
 static NSString *chatCell = @"chatCell";
 static NSString *chatSendCell = @"chatSendCell";
 
-@interface BLChatViewController ()<UITextViewDelegate>
+@interface BLChatViewController ()<UITextViewDelegate, EMChatManagerDelegate>
 @property(nonatomic, strong) UITextView *textV;
 @property(nonatomic, strong) UIView *bottomV;
 //@property(nonatomic, strong) BLCharView *tableV;
@@ -36,7 +36,7 @@ static NSString *chatSendCell = @"chatSendCell";
     _arr = [NSMutableArray array];
     [self loadChatMessageData];
     [self setupUI];
-    
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     // 监听键盘弹出
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
@@ -231,6 +231,14 @@ static NSString *chatSendCell = @"chatSendCell";
     
     NSIndexPath *indexP = [NSIndexPath indexPathForRow:_arr.count - 1 inSection:0];
     [self.tableV scrollToRowAtIndexPath:indexP atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+#pragma mark - EMChatManagerDelegate   
+// 接受到消息
+- (void)didReceiveMessage:(EMMessage *)message {
+    [_arr addObject:message];
+    [self.tableV reloadData];
+    [self scrollToLastIndex];
 }
 
 @end

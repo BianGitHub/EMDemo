@@ -8,6 +8,7 @@
 
 #import "BLChatCell.h"
 #import <Masonry.h>
+#import "EMCDDeviceManager.h"
 
 @interface BLChatCell ()
 @property(nonatomic, strong) UIImageView *iconImage;
@@ -34,6 +35,12 @@
     self.messageLab.preferredMaxLayoutWidth = self.frame.size.width - 120;
     self.messageLab.backgroundColor = [UIColor clearColor];
     self.messageLab.lineBreakMode = NSLineBreakByWordWrapping;
+    // 开启用户交互
+    self.messageLab.userInteractionEnabled  = YES;
+    // 添加点击手势
+    UITapGestureRecognizer *tapRecongizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageLabTapRecognizer:)];
+    [self.messageLab addGestureRecognizer:tapRecongizer];
+    
     UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_receiver_bg"]];
     
     [self.contentView addSubview:self.iconImage];
@@ -102,6 +109,28 @@
     [attStr appendAttributedString:timeAtt];
     
     return [attStr copy];
+}
+
+// label手势点击事件
+- (void)messageLabTapRecognizer:(UITapGestureRecognizer *)recognizer {
+    id messageBody = self.message.messageBodies[0];
+    if ([messageBody isKindOfClass:[EMVoiceMessageBody class]]) {
+        
+        EMVoiceMessageBody *messageBody = self.message.messageBodies[0];
+        // 本地语音路径
+        NSString *path = messageBody.localPath;
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if (![manager fileExistsAtPath:path]) {
+            // 服务器语音路径
+            path = messageBody.remotePath;
+        }
+        // 播放语音
+        [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:path completion:^(NSError *error) {
+            if (!error) {
+                NSLog(@"播放语音成功");
+            }
+        }];
+    }
 }
 
 @end

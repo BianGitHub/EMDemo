@@ -12,8 +12,12 @@
 
 //@property (nonatomic ,assign) NSInteger newFriend;
 @property (nonatomic ,strong) NSMutableArray *friendCount;
+@property (nonatomic ,strong) UIImageView *imageView;
 
 + (instancetype)sharedInstance;
 
 - (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc handler:(void(^)())handler;
+
+- (void)stopAnimate;
+- (void)animateWithlabel:(UILabel *)lab frame:(CGRect)frame imageName:(NSString *)imageName;
 @end

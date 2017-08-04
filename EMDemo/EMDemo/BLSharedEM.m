@@ -32,6 +32,13 @@ static BLSharedEM *sem = nil;
     return _friendCount;
 }
 
+- (UIImageView *)imageView {
+    if (!_imageView) {
+        self.imageView = [[UIImageView alloc] init];
+    }
+    return _imageView;
+}
+
 - (void)alertViewShow:(NSString *)str controller:(UIViewController *)vc handler:(void(^)())handler{
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
     if (handler == nil) {
@@ -43,6 +50,24 @@ static BLSharedEM *sem = nil;
         [alertC addAction:alertAction];
     }
     [vc presentViewController:alertC animated:YES completion:nil];
+}
+
+
+- (void)animateWithlabel:(UILabel *)lab frame:(CGRect)frame imageName:(NSString *)imageName {
+    
+    self.imageView.frame = frame;
+    [lab addSubview:self.imageView];
+    self.imageView.animationImages = @[[UIImage imageNamed:[NSString stringWithFormat:@"%@000", imageName]],
+                               [UIImage imageNamed:[NSString stringWithFormat:@"%@001", imageName]],
+                               [UIImage imageNamed:[NSString stringWithFormat:@"%@002", imageName]],
+                               [UIImage imageNamed:[NSString stringWithFormat:@"%@003", imageName]]];
+    self.imageView.animationDuration = 1;
+    [self.imageView startAnimating];
+}
+
+- (void)stopAnimate {
+    [self.imageView stopAnimating];
+    [self.imageView removeFromSuperview];
 }
 
 @end

@@ -13,6 +13,7 @@
 @interface BLChatCell ()
 @property(nonatomic, strong) UIImageView *iconImage;
 @property(nonatomic, strong) UILabel *messageLab;
+
 @end
 
 @implementation BLChatCell
@@ -113,6 +114,11 @@
 
 // label手势点击事件
 - (void)messageLabTapRecognizer:(UITapGestureRecognizer *)recognizer {
+    
+    if ([[BLSharedEM sharedInstance].imageView isAnimating]) {
+        
+        [[BLSharedEM sharedInstance] stopAnimate];
+    }
     id messageBody = self.message.messageBodies[0];
     if ([messageBody isKindOfClass:[EMVoiceMessageBody class]]) {
         
@@ -128,8 +134,11 @@
         [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:path completion:^(NSError *error) {
             if (!error) {
                 NSLog(@"播放语音成功");
+                [[BLSharedEM sharedInstance] stopAnimate];
             }
         }];
+        
+        [[BLSharedEM sharedInstance] animateWithlabel:self.messageLab frame:CGRectMake(0, 0, 30, 30) imageName:@"chat_receiver_audio_playing"];
     }
 }
 

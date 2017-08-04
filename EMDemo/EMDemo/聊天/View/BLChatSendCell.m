@@ -10,6 +10,8 @@
 #import <Masonry.h>
 #import "EMCDDeviceManager.h"
 
+static UIImageView *imageView;
+
 @interface BLChatSendCell ()
 @property(nonatomic, strong) UIImageView *iconImage;
 @property(nonatomic, strong) UILabel *messageLab;
@@ -116,6 +118,13 @@
 
 // label手势点击事件
 - (void)messageLabTapRecognizer:(UITapGestureRecognizer *)recognizer {
+    
+    // bug:  点击两个语音, 第二个不会停止  ----- 上来就把之前的停止
+    if ([[BLSharedEM sharedInstance].imageView isAnimating]) {
+        
+        [[BLSharedEM sharedInstance] stopAnimate];
+    }
+    
     id messageBody = self.message.messageBodies[0];
     if ([messageBody isKindOfClass:[EMVoiceMessageBody class]]) {
         
@@ -131,9 +140,14 @@
         [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:path completion:^(NSError *error) {
             if (!error) {
                 NSLog(@"播放语音成功");
+                [[BLSharedEM sharedInstance] stopAnimate];
             }
         }];
+        
+        [[BLSharedEM sharedInstance] animateWithlabel:self.messageLab frame:CGRectMake(self.messageLab.bounds.size.width-30, 0, 30, 30) imageName:@"chat_sender_audio_playing_"];
+
     }
+    
 }
 
 @end

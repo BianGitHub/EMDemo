@@ -73,9 +73,35 @@
     if ([body isKindOfClass:[EMTextMessageBody class]]) {
         EMTextMessageBody *textbody = body;
         self.messageLab.text = textbody.text; 
-    } else if([body isKindOfClass:[EMVideoMessageBody class]]) {
-        self.messageLab.text = @"[语音]";
+    } else if([body isKindOfClass:[EMVoiceMessageBody class]]) {
+//        self.messageLab.text = @"[语音]";
+        self.messageLab.attributedText = [self sendVoiceAtt];
+    }else if([body isKindOfClass:[EMImageMessageBody class]]){
+        self.messageLab.text = @"图片";
+    }else {
+        self.messageLab.text = @"未知类型";
     }
+}
+
+// 发送语音富文本   图片 + 时间
+- (NSAttributedString *)sendVoiceAtt {
+    
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] init];
+    UIImage *image = [UIImage imageNamed:@"chat_receiver_audio_playing_full"];
+    NSTextAttachment *imageAli = [[NSTextAttachment alloc] init];
+    imageAli.image = image;
+    imageAli.bounds = CGRectMake(0, -9, 30, 30);
+    
+    NSAttributedString *imgStr = [NSAttributedString attributedStringWithAttachment:imageAli];
+    [attStr appendAttributedString:imgStr];
+    
+    EMVoiceMessageBody *mesageBody = self.message.messageBodies[0];
+    
+    NSString *timeStr = [NSString stringWithFormat:@"%ld'", mesageBody.duration];
+    NSAttributedString *timeAtt = [[NSAttributedString alloc]initWithString:timeStr];
+    [attStr appendAttributedString:timeAtt];
+    
+    return [attStr copy];
 }
 
 @end

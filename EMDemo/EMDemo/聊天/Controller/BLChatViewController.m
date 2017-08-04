@@ -210,6 +210,7 @@ static NSString *chatSendCell = @"chatSendCell";
     }
 }
 
+#pragma mark - 发送text文本
 - (void)sendTextWithText:(NSString *)text {
     text = [text substringToIndex:text.length-1];
     if ([text isEqualToString:@""]) {
@@ -235,6 +236,35 @@ static NSString *chatSendCell = @"chatSendCell";
     } onQueue:nil];
     
     
+}
+
+#pragma mark - 发送语音文本
+- (void)sendRecordWithrecordPath:(NSString *)recordPath  aDuration:(NSInteger)aDuration {
+    
+    //displayName 是聊天历史记录显示的  --- 在Conversation控制器中cell中显示的
+    EMChatVoice *chatVoice = [[EMChatVoice alloc] initWithFile:recordPath displayName:@"[语音]"];
+    EMVoiceMessageBody *voicebody = [[EMVoiceMessageBody alloc] initWithChatObject:chatVoice];
+    voicebody.duration = aDuration;
+    
+    EMMessage *message = [[EMMessage alloc] initWithReceiver:self.buddy.username bodies:@[voicebody]];
+    message.messageType = eMessageTypeChat; // 单聊  (默认)
+    
+    [[EaseMob sharedInstance].chatManager asyncSendMessage:message progress:nil prepare:^(EMMessage *message, EMError *error) {
+        NSLog(@"准备发送语音 %@-%@", error, self.buddy.username);
+    } onQueue:nil completion:^(EMMessage *message, EMError *error) {
+        if (!error) {
+            
+            NSLog(@"语音发送成功 %@", error);
+            // 添加到数据源, 刷新表格显示
+            [_arr addObject:message];
+            [self.tableV reloadData];
+            // 发送完消息向上滚动
+            [self scrollToLastIndex];
+        } else {
+            NSLog(@"语音发送失败 %@", error);
+        }
+        
+    } onQueue:nil];
 }
 
 - (void)loadChatMessageData {
@@ -302,6 +332,7 @@ static NSString *chatSendCell = @"chatSendCell";
     [[EMCDDeviceManager sharedInstance] asyncStopRecordingWithCompletion:^(NSString *recordPath, NSInteger aDuration, NSError *error) {
         if (!error) {
             NSLog(@"松手发送录音  recordPath--%@  aDuration---%zd", recordPath, aDuration);
+            [self sendRecordWithrecordPath:recordPath aDuration:aDuration];
         }
     }];
 }

@@ -33,6 +33,18 @@
 		11DCC8761F2448E300BD1410 /* BLChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8751F2448E300BD1410 /* BLChatCell.m */; };
 		11DCC8791F24541700BD1410 /* BLCharView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8781F24541700BD1410 /* BLCharView.m */; };
 		11DCC8821F246F7F00BD1410 /* BLChatSendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCC8811F246F7F00BD1410 /* BLChatSendCell.m */; };
+		11DCCF4F1F3411A000BD1410 /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF311F3411A000BD1410 /* EMAudioPlayerUtil.m */; };
+		11DCCF501F3411A000BD1410 /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF331F3411A000BD1410 /* EMAudioRecorderUtil.m */; };
+		11DCCF511F3411A000BD1410 /* EMCDDeviceManager+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF351F3411A000BD1410 /* EMCDDeviceManager+Media.m */; };
+		11DCCF521F3411A000BD1410 /* EMCDDeviceManager+Microphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF371F3411A000BD1410 /* EMCDDeviceManager+Microphone.m */; };
+		11DCCF531F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF391F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.m */; };
+		11DCCF541F3411A000BD1410 /* EMCDDeviceManager+Remind.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF3B1F3411A000BD1410 /* EMCDDeviceManager+Remind.m */; };
+		11DCCF551F3411A000BD1410 /* EMCDDeviceManagerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF3E1F3411A000BD1410 /* EMCDDeviceManagerBase.m */; };
+		11DCCF561F3411A000BD1410 /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF421F3411A000BD1410 /* amrFileCodec.mm */; };
+		11DCCF571F3411A000BD1410 /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF441F3411A000BD1410 /* wav.mm */; };
+		11DCCF581F3411A000BD1410 /* EMVoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11DCCF461F3411A000BD1410 /* EMVoiceConverter.mm */; };
+		11DCCF591F3411A000BD1410 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DCCF4A1F3411A000BD1410 /* libopencore-amrnb.a */; };
+		11DCCF5A1F3411A000BD1410 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DCCF4E1F3411A000BD1410 /* libopencore-amrwb.a */; };
 		95803123E031E032E7DAB3D3 /* libPods-EMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -80,6 +92,36 @@
 		11DCC8801F246F7F00BD1410 /* BLChatSendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLChatSendCell.h; sourceTree = "<group>"; };
 		11DCC8811F246F7F00BD1410 /* BLChatSendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLChatSendCell.m; sourceTree = "<group>"; };
 		11DCCF271F32BB0F00BD1410 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		11DCCF2C1F3411A000BD1410 /* EMCDDeviceManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerDelegate.h; sourceTree = "<group>"; };
+		11DCCF2D1F3411A000BD1410 /* EMCDDeviceManagerProximitySensorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerProximitySensorDelegate.h; sourceTree = "<group>"; };
+		11DCCF2F1F3411A000BD1410 /* DemoErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoErrorCode.h; sourceTree = "<group>"; };
+		11DCCF301F3411A000BD1410 /* EMAudioPlayerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioPlayerUtil.h; sourceTree = "<group>"; };
+		11DCCF311F3411A000BD1410 /* EMAudioPlayerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAudioPlayerUtil.m; sourceTree = "<group>"; };
+		11DCCF321F3411A000BD1410 /* EMAudioRecorderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioRecorderUtil.h; sourceTree = "<group>"; };
+		11DCCF331F3411A000BD1410 /* EMAudioRecorderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAudioRecorderUtil.m; sourceTree = "<group>"; };
+		11DCCF341F3411A000BD1410 /* EMCDDeviceManager+Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Media.h"; sourceTree = "<group>"; };
+		11DCCF351F3411A000BD1410 /* EMCDDeviceManager+Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Media.m"; sourceTree = "<group>"; };
+		11DCCF361F3411A000BD1410 /* EMCDDeviceManager+Microphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Microphone.h"; sourceTree = "<group>"; };
+		11DCCF371F3411A000BD1410 /* EMCDDeviceManager+Microphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Microphone.m"; sourceTree = "<group>"; };
+		11DCCF381F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+ProximitySensor.h"; sourceTree = "<group>"; };
+		11DCCF391F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+ProximitySensor.m"; sourceTree = "<group>"; };
+		11DCCF3A1F3411A000BD1410 /* EMCDDeviceManager+Remind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Remind.h"; sourceTree = "<group>"; };
+		11DCCF3B1F3411A000BD1410 /* EMCDDeviceManager+Remind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Remind.m"; sourceTree = "<group>"; };
+		11DCCF3C1F3411A000BD1410 /* EMCDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManager.h; sourceTree = "<group>"; };
+		11DCCF3D1F3411A000BD1410 /* EMCDDeviceManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerBase.h; sourceTree = "<group>"; };
+		11DCCF3E1F3411A000BD1410 /* EMCDDeviceManagerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCDDeviceManagerBase.m; sourceTree = "<group>"; };
+		11DCCF411F3411A000BD1410 /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
+		11DCCF421F3411A000BD1410 /* amrFileCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amrFileCodec.mm; sourceTree = "<group>"; };
+		11DCCF431F3411A000BD1410 /* wav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wav.h; sourceTree = "<group>"; };
+		11DCCF441F3411A000BD1410 /* wav.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wav.mm; sourceTree = "<group>"; };
+		11DCCF451F3411A000BD1410 /* EMVoiceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVoiceConverter.h; sourceTree = "<group>"; };
+		11DCCF461F3411A000BD1410 /* EMVoiceConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EMVoiceConverter.mm; sourceTree = "<group>"; };
+		11DCCF481F3411A000BD1410 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		11DCCF491F3411A000BD1410 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		11DCCF4A1F3411A000BD1410 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		11DCCF4C1F3411A000BD1410 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		11DCCF4D1F3411A000BD1410 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		11DCCF4E1F3411A000BD1410 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
 		3B16CBE178394FD6D1C7D6D8 /* Pods-EMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68552156E6C54B0F3BC50D0A /* Pods-EMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMDemo/Pods-EMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8EE9868ED12D5A0EDC42BF2 /* libPods-EMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +135,10 @@
 				11A352571F0B8C01006134A2 /* libxml2.tbd in Frameworks */,
 				11A352551F0B8BFB006134A2 /* libresolv.tbd in Frameworks */,
 				11A352531F0B8BF2006134A2 /* libiconv.tbd in Frameworks */,
+				11DCCF591F3411A000BD1410 /* libopencore-amrnb.a in Frameworks */,
 				11A352511F0B8BE3006134A2 /* libz.tbd in Frameworks */,
 				11A3524F1F0B8BD9006134A2 /* libstdc++.6.0.9.tbd in Frameworks */,
+				11DCCF5A1F3411A000BD1410 /* libopencore-amrwb.a in Frameworks */,
 				11A3524D1F0B8BD2006134A2 /* libsqlite3.tbd in Frameworks */,
 				11A3524B1F0B8BAF006134A2 /* CFNetwork.framework in Frameworks */,
 				11A352491F0B8BA8006134A2 /* MobileCoreServices.framework in Frameworks */,
@@ -286,10 +330,96 @@
 		11A352811F0F6A12006134A2 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				11DCCF2A1F3411A000BD1410 /* DeviceHelper */,
 				11A352821F0F6A64006134A2 /* BLSharedEM.h */,
 				11A352831F0F6A64006134A2 /* BLSharedEM.m */,
 			);
 			name = lib;
+			sourceTree = "<group>";
+		};
+		11DCCF2A1F3411A000BD1410 /* DeviceHelper */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF2B1F3411A000BD1410 /* delegates */,
+				11DCCF2E1F3411A000BD1410 /* internal */,
+				11DCCF3F1F3411A000BD1410 /* VoiceConvert */,
+			);
+			path = DeviceHelper;
+			sourceTree = "<group>";
+		};
+		11DCCF2B1F3411A000BD1410 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF2C1F3411A000BD1410 /* EMCDDeviceManagerDelegate.h */,
+				11DCCF2D1F3411A000BD1410 /* EMCDDeviceManagerProximitySensorDelegate.h */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		11DCCF2E1F3411A000BD1410 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF2F1F3411A000BD1410 /* DemoErrorCode.h */,
+				11DCCF301F3411A000BD1410 /* EMAudioPlayerUtil.h */,
+				11DCCF311F3411A000BD1410 /* EMAudioPlayerUtil.m */,
+				11DCCF321F3411A000BD1410 /* EMAudioRecorderUtil.h */,
+				11DCCF331F3411A000BD1410 /* EMAudioRecorderUtil.m */,
+				11DCCF341F3411A000BD1410 /* EMCDDeviceManager+Media.h */,
+				11DCCF351F3411A000BD1410 /* EMCDDeviceManager+Media.m */,
+				11DCCF361F3411A000BD1410 /* EMCDDeviceManager+Microphone.h */,
+				11DCCF371F3411A000BD1410 /* EMCDDeviceManager+Microphone.m */,
+				11DCCF381F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.h */,
+				11DCCF391F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.m */,
+				11DCCF3A1F3411A000BD1410 /* EMCDDeviceManager+Remind.h */,
+				11DCCF3B1F3411A000BD1410 /* EMCDDeviceManager+Remind.m */,
+				11DCCF3C1F3411A000BD1410 /* EMCDDeviceManager.h */,
+				11DCCF3D1F3411A000BD1410 /* EMCDDeviceManagerBase.h */,
+				11DCCF3E1F3411A000BD1410 /* EMCDDeviceManagerBase.m */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		11DCCF3F1F3411A000BD1410 /* VoiceConvert */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF401F3411A000BD1410 /* amrwapper */,
+				11DCCF451F3411A000BD1410 /* EMVoiceConverter.h */,
+				11DCCF461F3411A000BD1410 /* EMVoiceConverter.mm */,
+				11DCCF471F3411A000BD1410 /* opencore-amrnb */,
+				11DCCF4B1F3411A000BD1410 /* opencore-amrwb */,
+			);
+			path = VoiceConvert;
+			sourceTree = "<group>";
+		};
+		11DCCF401F3411A000BD1410 /* amrwapper */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF411F3411A000BD1410 /* amrFileCodec.h */,
+				11DCCF421F3411A000BD1410 /* amrFileCodec.mm */,
+				11DCCF431F3411A000BD1410 /* wav.h */,
+				11DCCF441F3411A000BD1410 /* wav.mm */,
+			);
+			path = amrwapper;
+			sourceTree = "<group>";
+		};
+		11DCCF471F3411A000BD1410 /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF481F3411A000BD1410 /* interf_dec.h */,
+				11DCCF491F3411A000BD1410 /* interf_enc.h */,
+				11DCCF4A1F3411A000BD1410 /* libopencore-amrnb.a */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		11DCCF4B1F3411A000BD1410 /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				11DCCF4C1F3411A000BD1410 /* dec_if.h */,
+				11DCCF4D1F3411A000BD1410 /* if_rom.h */,
+				11DCCF4E1F3411A000BD1410 /* libopencore-amrwb.a */,
+			);
+			path = "opencore-amrwb";
 			sourceTree = "<group>";
 		};
 		8E6B0FBDDE89BB2C4190E624 /* Pods */ = {
@@ -441,18 +571,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				11DCC8761F2448E300BD1410 /* BLChatCell.m in Sources */,
+				11DCCF521F3411A000BD1410 /* EMCDDeviceManager+Microphone.m in Sources */,
 				11A351271F0B67B1006134A2 /* AppDelegate.m in Sources */,
 				11A3527C1F0DDFEA006134A2 /* BLConfigVC.m in Sources */,
+				11DCCF571F3411A000BD1410 /* wav.mm in Sources */,
 				11A3525A1F0B92DB006134A2 /* BLNavController.m in Sources */,
 				11A351431F0B6ED6006134A2 /* BLTabBarController.m in Sources */,
+				11DCCF501F3411A000BD1410 /* EMAudioRecorderUtil.m in Sources */,
 				11A3527D1F0DDFEA006134A2 /* BLAddressBookVC.m in Sources */,
 				11A3513D1F0B6BFD006134A2 /* BLLoginController.m in Sources */,
+				11DCCF551F3411A000BD1410 /* EMCDDeviceManagerBase.m in Sources */,
 				11A352841F0F6A65006134A2 /* BLSharedEM.m in Sources */,
 				11A352801F0DE432006134A2 /* BLAddFriendController.m in Sources */,
 				11A351241F0B67B1006134A2 /* main.m in Sources */,
+				11DCCF581F3411A000BD1410 /* EMVoiceConverter.mm in Sources */,
+				11DCCF531F3411A000BD1410 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				11DCC8791F24541700BD1410 /* BLCharView.m in Sources */,
 				11A352871F0F7A74006134A2 /* BLFriendRequestController.m in Sources */,
+				11DCCF561F3411A000BD1410 /* amrFileCodec.mm in Sources */,
 				11DCC8711F1F33DF00BD1410 /* BLChatViewController.m in Sources */,
+				11DCCF4F1F3411A000BD1410 /* EMAudioPlayerUtil.m in Sources */,
+				11DCCF511F3411A000BD1410 /* EMCDDeviceManager+Media.m in Sources */,
+				11DCCF541F3411A000BD1410 /* EMCDDeviceManager+Remind.m in Sources */,
 				11A352691F0B950E006134A2 /* BLConversationVC.m in Sources */,
 				11DCC8821F246F7F00BD1410 /* BLChatSendCell.m in Sources */,
 			);
@@ -573,6 +713,11 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EMDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = EMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EMDemo/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/EMDemo/DeviceHelper/VoiceConvert/opencore-amrwb",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "b-Mac.EMDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -587,6 +732,11 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EMDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = EMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EMDemo/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/EMDemo/DeviceHelper/VoiceConvert/opencore-amrwb",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "b-Mac.EMDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

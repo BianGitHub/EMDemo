@@ -12,6 +12,7 @@
 #import <Masonry.h>
 #import "BLChatCell.h"
 #import "BLChatSendCell.h"
+#import "EMCDDeviceManager.h"
 
 static NSString *chatCell = @"chatCell";
 static NSString *chatSendCell = @"chatSendCell";
@@ -19,7 +20,7 @@ static NSString *chatSendCell = @"chatSendCell";
 @interface BLChatViewController ()<UITextViewDelegate, EMChatManagerDelegate>
 @property(nonatomic, strong) UITextView *textV;
 @property(nonatomic, strong) UIView *bottomV;
-//@property(nonatomic, strong) BLCharView *tableV;
+@property(nonatomic, strong) UIButton *recordBtn;
 @property(nonatomic, strong) BLCharView *tableV;
 @end
 
@@ -95,8 +96,22 @@ static NSString *chatSendCell = @"chatSendCell";
     [self.tableV registerClass:[BLChatSendCell class] forCellReuseIdentifier:chatSendCell];
     
     UIButton *speechBtn = [self createBtnWithImage:@"chatBar_record"];
+    [speechBtn addTarget:self action:@selector(actionSpeechBtn) forControlEvents:UIControlEventTouchUpInside];
     UIButton *emojBtn = [self createBtnWithImage:@"chatBar_face"];
     UIButton *moreBtn = [self createBtnWithImage:@"chatBar_more"];
+    
+    // 录音按钮
+    self.recordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.recordBtn.hidden = YES;
+    self.recordBtn.layer.cornerRadius = 7;
+    self.recordBtn.clipsToBounds = YES;
+    [self.recordBtn setBackgroundColor:[UIColor grayColor]];
+    [self.recordBtn setTitle:@"按住录音" forState:UIControlStateNormal];
+    [self.recordBtn setTitle:@"松开发送" forState:UIControlStateHighlighted];
+    [self.recordBtn setTintColor:[UIColor whiteColor]];
+    [self.recordBtn addTarget:self action:@selector(actionBtnDown) forControlEvents:UIControlEventTouchDown];
+    [self.recordBtn addTarget:self action:@selector(actionBtnInside) forControlEvents:UIControlEventTouchUpInside];
+    [self.recordBtn addTarget:self action:@selector(actionBtnoutside) forControlEvents:UIControlEventTouchUpOutside];
     
     self.textV = [[UITextView alloc] init];
     self.textV.delegate = self;
@@ -112,6 +127,7 @@ static NSString *chatSendCell = @"chatSendCell";
     [self.bottomV addSubview:emojBtn];
     [self.bottomV addSubview:moreBtn];
     [self.bottomV addSubview:self.textV];
+    [self.textV addSubview:self.recordBtn];
     
     
     // masonry布局
@@ -149,6 +165,11 @@ static NSString *chatSendCell = @"chatSendCell";
         make.right.equalTo(emojBtn.mas_left).offset(-5);
         make.bottom.equalTo(self.bottomV.mas_bottom).offset(-3);
         make.height.equalTo(@33);
+    }];
+    
+    // 录音按钮约束
+    [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.width.equalTo(self.textV);
     }];
     
 }
@@ -249,6 +270,47 @@ static NSString *chatSendCell = @"chatSendCell";
         [self scrollToLastIndex];
     }
     
+}
+
+
+#pragma mark - 录音按钮点击事件
+-(void)actionSpeechBtn {
+    [self.textV endEditing:YES];
+    self.recordBtn.hidden = !self.recordBtn.hidden;
+}
+
+//UIControlEventTouchDown -------按住录音
+- (void)actionBtnDown {
+    NSLog(@"按住录音");
+    
+    // 环信Demo中filename命名方式 -- 拷贝来的--利用时间戳拼一个随机数
+    int x = arc4random() % 100000;
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    NSString *fileName = [NSString stringWithFormat:@"%d%d",(int)time,x];
+    
+    [[EMCDDeviceManager sharedInstance] asyncStartRecordingWithFileName:fileName completion:^(NSError *error) {
+        if (!error) {
+            NSLog(@"开始录音成功");
+        }
+    }];
+}
+
+//UIControlEventTouchUpInside -------在按钮范围内松手发送
+- (void)actionBtnInside {
+    NSLog(@"在按钮范围内松手发送");
+    
+    [[EMCDDeviceManager sharedInstance] asyncStopRecordingWithCompletion:^(NSString *recordPath, NSInteger aDuration, NSError *error) {
+        if (!error) {
+            NSLog(@"松手发送录音  recordPath--%@  aDuration---%zd", recordPath, aDuration);
+        }
+    }];
+}
+
+//UIControlEventTouchUpOutside -------不在按钮范围内松手不发送
+- (void)actionBtnoutside {
+    NSLog(@"不在按钮范围内松手不发送");
+    
+    [[EMCDDeviceManager sharedInstance] cancelCurrentRecording];
 }
 
 @end

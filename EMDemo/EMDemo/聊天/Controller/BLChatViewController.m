@@ -22,6 +22,7 @@ static NSString *chatSendCell = @"chatSendCell";
 @property(nonatomic, strong) UIView *bottomV;
 @property(nonatomic, strong) UIButton *recordBtn;
 @property(nonatomic, strong) BLCharView *tableV;
+@property(nonatomic, copy) NSString *saveStr;
 @end
 
 @implementation BLChatViewController {
@@ -35,6 +36,7 @@ static NSString *chatSendCell = @"chatSendCell";
     EMBuddy *buddy = [[EaseMob sharedInstance].chatManager buddyList][self.integerRow];
     self.navigationItem.title = buddy.username;
     _arr = [NSMutableArray array];
+    self.saveStr = @"";
     [self loadChatMessageData];
     [self setupUI];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
@@ -305,8 +307,18 @@ static NSString *chatSendCell = @"chatSendCell";
 
 #pragma mark - 录音按钮点击事件
 -(void)actionSpeechBtn {
-    [self.textV endEditing:YES];
+    
     self.recordBtn.hidden = !self.recordBtn.hidden;
+    
+    if (self.recordBtn.hidden == NO) {
+        self.saveStr = self.textV.text;
+        self.textV.text = @"";
+        [self.textV endEditing:YES];
+        
+    }else {
+        self.textV.text = self.saveStr;
+        [self.textV becomeFirstResponder];
+    }
 }
 
 //UIControlEventTouchDown -------按住录音

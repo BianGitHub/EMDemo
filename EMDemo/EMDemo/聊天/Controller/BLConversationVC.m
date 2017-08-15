@@ -13,6 +13,7 @@
 
 @interface BLConversationVC ()<EMChatManagerDelegate>
 @property(nonatomic, strong)NSArray *conversations;
+@property(nonatomic, strong)BLConversationTableView *tableview;
 @end
 
 @implementation BLConversationVC {
@@ -32,9 +33,12 @@
     [self loadConversation];
     
     BLConversationTableView *tableview = [[BLConversationTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+    self.tableview = tableview;
     tableview.conversations = self.conversations;
     [self.view addSubview:tableview];
     
+    // 显示tabbarBage
+    [self showTabBarbadge];
 }
 
 - (void)loadConversation {
@@ -95,6 +99,33 @@
     [dict setValue:message forKey:@"message"];
     [[BLSharedEM sharedInstance].friendCount addObject:dict];
 
+}
+
+// 历史会话列表改变
+- (void)didUpdateConversationList:(NSArray *)conversationList {
+    
+    self.tableview.conversations = conversationList;
+    [self.tableview reloadData];
+    // 显示tabbarBage
+    [self showTabBarbadge];
+}
+
+// 未读消息数改变
+- (void)didUnreadMessagesCountChanged {
+    [self.tableview reloadData];
+    
+    // 显示tabbarBage
+    [self showTabBarbadge];
+}
+
+- (void)showTabBarbadge{
+    // 遍历所有会话记录, 将未读消息累加
+    NSInteger totalInter = 0;
+    for (EMConversation *conversation in self.conversations) {
+        totalInter += [conversation unreadMessagesCount];
+    }
+    
+    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", totalInter];
 }
 
 @end

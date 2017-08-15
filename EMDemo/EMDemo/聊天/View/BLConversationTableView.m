@@ -20,6 +20,7 @@ static NSString *cellID = @"cellID";
     if (self = [super initWithFrame:frame style:style]) {
         self.dataSource = self;
         self.conversations = [NSArray array];
+        self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
     }
     return self;
@@ -37,7 +38,14 @@ static NSString *cellID = @"cellID";
     EMConversation *consat = self.conversations[indexPath.row];
     
     // 显示用户名
-    cell.textLabel.text = consat.chatter;
+    
+    NSInteger inter = consat.unreadMessagesCount;
+    if (inter == 0) {
+        cell.textLabel.text = consat.chatter;
+    } else {
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@          未读消息数:%ld", consat.chatter, [consat unreadMessagesCount]];
+    }
     
     // 显示最后一行数据到副标题
     id body = consat.latestMessage.messageBodies[0];

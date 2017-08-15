@@ -11,7 +11,7 @@
 #import "BLSharedEM.h"
 
 @interface BLConversationVC ()<EMChatManagerDelegate>
-
+@property(nonatomic, strong)NSArray *conversations;
 @end
 
 @implementation BLConversationVC {
@@ -27,6 +27,22 @@
     // 设置代理
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
 
+    // 显示历史会话
+    [self loadConversation];
+    
+    
+}
+
+- (void)loadConversation {
+    // 先从内存中获取
+    NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+    
+    // 如果内存中没有, 从服务器中获取
+    if (conversations.count == 0) {
+        conversations = [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES];
+    }
+    self.conversations = conversations;
+    NSLog(@"conversation====== %@", conversations);
 }
 
 // 监听网络状态

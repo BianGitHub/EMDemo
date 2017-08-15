@@ -311,6 +311,7 @@ static NSString *chatSendCell = @"chatSendCell";
     self.recordBtn.hidden = !self.recordBtn.hidden;
     
     if (self.recordBtn.hidden == NO) {
+        // 保存输入的text, 开启录音清除, 关闭录音再显示text
         self.saveStr = self.textV.text;
         self.textV.text = @"";
         [self.textV endEditing:YES];

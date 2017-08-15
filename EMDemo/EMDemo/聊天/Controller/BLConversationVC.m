@@ -9,6 +9,7 @@
 #import "BLConversationVC.h"
 #import <EaseMob.h>
 #import "BLSharedEM.h"
+#import "BLConversationTableView.h"
 
 @interface BLConversationVC ()<EMChatManagerDelegate>
 @property(nonatomic, strong)NSArray *conversations;
@@ -30,6 +31,9 @@
     // 显示历史会话
     [self loadConversation];
     
+    BLConversationTableView *tableview = [[BLConversationTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+    tableview.conversations = self.conversations;
+    [self.view addSubview:tableview];
     
 }
 

@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BLConversationTableViewDelegate <NSObject>
+
+- (void)pushChatVCWithInter:(NSInteger)interger;
+
+@end
+
 @interface BLConversationTableView : UITableView
 
 @property(nonatomic, strong) NSArray *conversations;
-
+@property(nonatomic, weak) id<BLConversationTableViewDelegate> delegatePush;
 @end

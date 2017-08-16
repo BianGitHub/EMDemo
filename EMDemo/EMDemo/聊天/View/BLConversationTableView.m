@@ -8,9 +8,10 @@
 
 #import "BLConversationTableView.h"
 #import <EaseMob.h>
+#import "BLChatViewController.h"
 
 static NSString *cellID = @"cellID";
-@interface BLConversationTableView ()<UITableViewDataSource>
+@interface BLConversationTableView ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -19,6 +20,7 @@ static NSString *cellID = @"cellID";
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     if (self = [super initWithFrame:frame style:style]) {
         self.dataSource = self;
+        self.delegate = self;
         self.conversations = [NSArray array];
         self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
@@ -66,6 +68,24 @@ static NSString *cellID = @"cellID";
     cell.imageView.image = [UIImage imageNamed:@"user"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger inter = 0;
+    EMConversation *consat = self.conversations[indexPath.row];
+    NSString *username = consat.chatter;
+    NSArray<EMBuddy *> *buddyArr = [[EaseMob sharedInstance].chatManager buddyList];
+    for (int i = 0; i < buddyArr.count; i++) {
+        if ([buddyArr[i].username isEqualToString:username]) {
+            inter = i;
+            break;
+        }
+    }
+    
+    if ([self.delegatePush respondsToSelector:@selector(pushChatVCWithInter:)]) {
+        [self.delegatePush pushChatVCWithInter:inter];
+    }
 }
 
 @end

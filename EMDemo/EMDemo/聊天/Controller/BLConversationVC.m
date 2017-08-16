@@ -10,8 +10,9 @@
 #import <EaseMob.h>
 #import "BLSharedEM.h"
 #import "BLConversationTableView.h"
+#import "BLChatViewController.h"
 
-@interface BLConversationVC ()<EMChatManagerDelegate>
+@interface BLConversationVC ()<EMChatManagerDelegate, BLConversationTableViewDelegate>
 @property(nonatomic, strong)NSArray *conversations;
 @property(nonatomic, strong)BLConversationTableView *tableview;
 @end
@@ -28,12 +29,13 @@
     _dict = [NSMutableDictionary dictionaryWithCapacity:0];
     // 设置代理
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
-
+    
     // 显示历史会话
     [self loadConversation];
     
     BLConversationTableView *tableview = [[BLConversationTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
     self.tableview = tableview;
+    self.tableview.delegatePush = self;
     tableview.conversations = self.conversations;
     [self.view addSubview:tableview];
     
@@ -126,6 +128,16 @@
     }
     
     self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", totalInter];
+}
+
+- (void)pushChatVCWithInter:(NSInteger)interger {
+    // push时隐藏tabbar, 返回来时tabbar恢复正常
+    self.hidesBottomBarWhenPushed = YES;
+    BLChatViewController *chatVC = [[BLChatViewController alloc] init];
+    chatVC.integerRow = interger;
+    chatVC.buddy = [[EaseMob sharedInstance].chatManager buddyList][interger];
+    [self.navigationController pushViewController:chatVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

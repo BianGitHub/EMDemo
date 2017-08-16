@@ -20,6 +20,7 @@
 @implementation BLConversationVC {
     
     NSMutableDictionary *_dict;
+    NSInteger totoaInteger;
 }
 
 - (void)viewDidLoad {
@@ -28,6 +29,7 @@
     self.navigationItem.title = @"聊天";
     _dict = [NSMutableDictionary dictionaryWithCapacity:0];
     // 设置代理
+    
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     
     // 显示历史会话
@@ -123,15 +125,16 @@
 // 显示tabbarBage
 - (void)showTabBarbadge{
     // 遍历所有会话记录, 将未读消息累加
-    NSInteger totalInter = 0;
-    for (EMConversation *conversation in self.conversations) {
-        totalInter += [conversation unreadMessagesCount];
+    totoaInteger = 0;
+    // 获取最新的未读消息[[[EaseMob sharedInstance] chatManager] conversations]
+    for (EMConversation *conversation in [[[EaseMob sharedInstance] chatManager] conversations]) {
+        totoaInteger += [conversation unreadMessagesCount];
     }
     
-    if (totalInter == 0) {
+    if (totoaInteger == 0) {
         return;
     }
-    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", totalInter];
+    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", totoaInteger];
 }
 
 - (void)pushChatVCWithInter:(NSInteger)interger {
@@ -146,5 +149,6 @@
     // 显示tabbarBage
     [self showTabBarbadge];
 }
+
 
 @end

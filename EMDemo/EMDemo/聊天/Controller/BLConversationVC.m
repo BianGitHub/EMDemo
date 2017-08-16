@@ -120,6 +120,7 @@
     [self showTabBarbadge];
 }
 
+// 显示tabbarBage
 - (void)showTabBarbadge{
     // 遍历所有会话记录, 将未读消息累加
     NSInteger totalInter = 0;
@@ -127,6 +128,9 @@
         totalInter += [conversation unreadMessagesCount];
     }
     
+    if (totalInter == 0) {
+        return;
+    }
     self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", totalInter];
 }
 
@@ -138,6 +142,9 @@
     chatVC.buddy = [[EaseMob sharedInstance].chatManager buddyList][interger];
     [self.navigationController pushViewController:chatVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+    
+    // 显示tabbarBage
+    [self showTabBarbadge];
 }
 
 @end

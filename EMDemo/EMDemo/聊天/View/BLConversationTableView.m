@@ -83,6 +83,8 @@ static NSString *cellID = @"cellID";
         }
     }
     
+    [consat markAllMessagesAsRead:YES];
+    
     if ([self.delegatePush respondsToSelector:@selector(pushChatVCWithInter:)]) {
         [self.delegatePush pushChatVCWithInter:inter];
     }
